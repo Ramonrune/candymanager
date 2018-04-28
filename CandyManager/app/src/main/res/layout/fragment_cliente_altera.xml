@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:mask="http://schemas.android.com/tools"
+    android:background="@color/colorAccent"
+    android:orientation="vertical"
+    >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="32dp">
+
+            <ImageButton
+                android:id="@+id/fotoClienteImageButton"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_marginBottom="16dp"
+                android:background="@color/colorPrimary"
+                app:srcCompat="@drawable/cliente" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nome"
+                android:textColor="@android:color/background_dark" />
+
+            <EditText
+                android:id="@+id/nomeClienteEditText"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/custom_edit_text"
+                android:ems="10"
+                android:hint="Nome"
+                android:inputType="textPersonName" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="E-mail"
+                android:textColor="@android:color/background_dark" />
+
+            <EditText
+                android:id="@+id/emailClienteEditText"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/custom_edit_text"
+                android:ems="10"
+                android:hint="E-mail"
+
+                android:inputType="textEmailAddress" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Telefone"
+                android:textColor="@android:color/background_dark" />
+
+            <com.github.pinball83.maskededittext.MaskedEditText
+                android:id="@+id/telefoneClienteEditText"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:inputType="phone"
+                app:mask="(**) *****-****"
+                android:background="@drawable/custom_edit_text"
+                app:maskIconColor="@color/colorPrimary"
+                app:notMaskedSymbol="*" />
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

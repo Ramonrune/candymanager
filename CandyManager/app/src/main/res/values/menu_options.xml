@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="menu_options">
+        <item>Mostrar</item>
+        <item>Alterar</item>
+        <item>Excluir</item>
+    </array>
+</resources>
