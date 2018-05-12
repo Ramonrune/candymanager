@@ -7,10 +7,11 @@
 
     <string name="action_settings">Settings</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-
     <dimen name="design_navigation_icon_size" tools:override="true">40dp</dimen>
     <dimen name="design_navigation_separator_vertical_padding">10dp</dimen>
+
+    <string name="without_social_media_integration">Você não tem nenhuma rede sociail integrada ao seu aplicativo.\n\nVá em <b>Menu > Configurações</b> para realizar a integração.</string>
+
+
 
 </resources>
