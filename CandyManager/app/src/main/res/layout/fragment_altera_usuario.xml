@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:mask="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorAccent"
+    android:orientation="vertical"
+    mask:layout_editor_absoluteX="0dp"
+    mask:layout_editor_absoluteY="43dp">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="32dp">
+
+            <ImageButton
+                android:id="@+id/fotoUsuarioImageButton"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_marginBottom="16dp"
+                android:background="@color/colorPrimary"
+                app:srcCompat="@drawable/usuario" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nome"
+                android:textColor="@android:color/background_dark" />
+
+            <EditText
+                android:id="@+id/nomeUsuarioEditText"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/custom_edit_text"
+                android:ems="10"
+                android:hint="Nome"
+                android:inputType="textPersonName" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="E-mail"
+                android:textColor="@android:color/background_dark" />
+
+            <EditText
+                android:id="@+id/emailUsuarioEditText"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/custom_edit_text"
+                android:ems="10"
+                android:hint="E-mail"
+
+                android:inputType="textEmailAddress" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="CEP"
+                android:textColor="@android:color/background_dark" />
+
+            <EditText
+                android:id="@+id/cepUsuarioEditText2"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/custom_edit_text"
+                android:ems="10"
+
+                android:inputType="textEmailAddress" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Endereço"
+                android:textColor="@android:color/background_dark" />
+
+            <EditText
+                android:id="@+id/enderecoUsuarioEditText"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/custom_edit_text"
+                android:ems="10"
+
+                android:inputType="textEmailAddress" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Bairro"
+                android:textColor="@android:color/background_dark" />
+
+            <EditText
+                android:id="@+id/bairroUsuarioEditText2"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/custom_edit_text"
+                android:ems="10"
+
+                android:inputType="textEmailAddress" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Número"
+                android:textColor="@android:color/background_dark" />
+
+            <EditText
+                android:id="@+id/numeroUsuarioEditText"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/custom_edit_text"
+                android:ems="10"
+
+                android:inputType="textEmailAddress" />
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>
