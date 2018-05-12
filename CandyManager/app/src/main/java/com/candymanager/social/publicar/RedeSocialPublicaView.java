@@ -5,7 +5,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Switch;
 
-public class PublicarView {
+public class RedeSocialPublicaView {
 
     private ImageButton imageDoce;
     private String legenda;
@@ -14,7 +14,7 @@ public class PublicarView {
     private Switch publicarTwitter;
     private Button publicarButton;
 
-    public PublicarView(View view){
+    public RedeSocialPublicaView(View view){
 
     }
 

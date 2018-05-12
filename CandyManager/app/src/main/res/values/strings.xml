@@ -10,7 +10,7 @@
     <dimen name="design_navigation_icon_size" tools:override="true">40dp</dimen>
     <dimen name="design_navigation_separator_vertical_padding">10dp</dimen>
 
-    <string name="without_social_media_integration">Você não tem nenhuma rede sociail integrada ao seu aplicativo.\n\nVá em <b>Menu > Configurações</b> para realizar a integração.</string>
+    <string name="without_social_media_integration">Você não tem nenhuma rede social integrada ao seu aplicativo.\n\nVá em <b>Menu > Configurações</b> para realizar a integração.</string>
 
 
 

@@ -5,8 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.candymanager.db.PedidoAjudante;
-import com.candymanager.db.PedidoContrato;
+
 import com.candymanager.db.ProdutoContrato;
 import com.candymanager.login.LoginSharedPreferences;
 import com.candymanager.produtos.ProdutoModel;
@@ -16,7 +15,7 @@ import java.util.ArrayList;
 
 public class PedidoDAO {
 
-    private PedidoAjudante pedidoAjudante;
+    //private PedidoAjudante pedidoAjudante;
 
     private Context contexto;
 
@@ -29,10 +28,10 @@ public class PedidoDAO {
     }
 
     public PedidoDAO(Context context){
-        pedidoAjudante = new PedidoAjudante(context);
+        //pedidoAjudante = new PedidoAjudante(context);
         this.contexto = context;
     }
-
+/*
     public boolean cadastrar(PedidoModel model){
 
         SQLiteDatabase db = pedidoAjudante.getWritableDatabase();
@@ -172,6 +171,6 @@ public class PedidoDAO {
         return lista;
 
     }
-
+*/
 
 }

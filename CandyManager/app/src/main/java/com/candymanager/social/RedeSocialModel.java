@@ -1,6 +1,6 @@
 package com.candymanager.social;
 
-public class RedesSociaisModel {
+public class RedeSocialModel {
 
     private boolean facebookAtivo;
     private boolean instagramAtivo;

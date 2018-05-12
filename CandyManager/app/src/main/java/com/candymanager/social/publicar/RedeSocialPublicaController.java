@@ -3,15 +3,13 @@ package com.candymanager.social.publicar;
 import android.view.View;
 import android.widget.ListView;
 
-public class ListarPublicacoesView {
+public class RedeSocialPublicaController {
 
     private ListView publicacaoList;
 
-    public ListarPublicacoesView(View view){
+    public RedeSocialPublicaController(View view){
 
     }
 
-    public void  mostrarLista(){
 
-    }
 }
