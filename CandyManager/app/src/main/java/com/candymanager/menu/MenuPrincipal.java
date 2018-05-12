@@ -24,6 +24,7 @@ import com.candymanager.db.ProdutoContrato;
 import com.candymanager.home.HomeController;
 import com.candymanager.login.LoginController;
 import com.candymanager.login.LoginSharedPreferences;
+import com.candymanager.pedidos.PedidoController;
 import com.candymanager.produtos.ProdutoController;
 
 public class MenuPrincipal extends AppCompatActivity
@@ -163,7 +164,6 @@ public class MenuPrincipal extends AppCompatActivity
         android.support.v4.app.FragmentManager manager = getSupportFragmentManager();
 
 
-
         if (id == R.id.nav_home) {
             HomeController homeController = new HomeController();
             manager.beginTransaction().replace(R.id.relative_layout_fragmento, homeController, homeController.getTag()).commit();
@@ -177,6 +177,11 @@ public class MenuPrincipal extends AppCompatActivity
             ProdutoController produtoController = new ProdutoController();
 
             manager.beginTransaction().replace(R.id.relative_layout_fragmento, produtoController, produtoController.getTag()).commit();
+        }
+        else if (id == R.id.nav_pedidos) {
+            PedidoController pedidoController= new PedidoController();
+
+            manager.beginTransaction().replace(R.id.relative_layout_fragmento, pedidoController, pedidoController.getTag()).commit();
         }
 
 
