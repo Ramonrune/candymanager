@@ -17,7 +17,7 @@
         android:layout_marginBottom="16dp"
         android:layout_marginRight="16dp"
         android:src="@drawable/adiciona"
-        app:backgroundTint="@color/colorPrimary" />
+        app:backgroundTint="#43b05c" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/listaProdutoRecyclerView"

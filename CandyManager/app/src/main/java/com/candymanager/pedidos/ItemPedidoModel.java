@@ -2,13 +2,14 @@ package com.candymanager.pedidos;
 
 public class ItemPedidoModel {
 
-    private String id_item_pedido;
+    private String idItemPedido;
+    private String doce;
     private int quantidade;
     private float valor_total_gasto;
-    private int margem;
+    private int margemLucro;
 
-    public String getId_item_pedido() {
-        return id_item_pedido;
+    public String getIdItemPedido() {
+        return idItemPedido;
     }
 
     public int getQuantidade() {
@@ -19,7 +20,11 @@ public class ItemPedidoModel {
         return valor_total_gasto;
     }
 
-    public int getMargem() {
-        return margem;
+    public int getMargemLucro() {
+        return margemLucro;
+    }
+
+    public String getDoce() {
+        return doce;
     }
 }
