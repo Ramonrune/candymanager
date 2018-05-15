@@ -18,509 +18,511 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:id="@+id/anoTextView"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
-                        android:text="0000"
-                        android:textAllCaps="false"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                        android:textSize="35sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/janLinearLayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:text="Janeiro"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
-
-                    <LinearLayout
-                        android:id="@+id/compromissoJanLinearLayout"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_margin="5dp"
-                        android:orientation="vertical">
-
-                        <android.support.v7.widget.RecyclerView
-                            android:id="@+id/listaPedidoJanRecyclerView"
+            <!--
+                        <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_margin="5dp" />
-
-                        <com.futuremind.recyclerviewfastscroll.FastScroller
-                            android:id="@+id/pedidoJanFastScroller"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="right"
-                            android:layout_margin="5dp"
-                            android:layout_marginBottom="16dp"
-                            android:layout_marginTop="16dp"
-                            android:gravity="right"
-                            android:orientation="vertical" />
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/fevLinearLayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:text="Fevereiro"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
-
-                    <LinearLayout
-                        android:id="@+id/compromissoFevLinearLayout"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_margin="5dp"
-                        android:orientation="vertical">
-
-                        <android.support.v7.widget.RecyclerView
-                            android:id="@+id/listaPedidoFevRecyclerView"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent" />
-
-                        <com.futuremind.recyclerviewfastscroll.FastScroller
-                            android:id="@+id/pedidoFevFastScroller"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="right"
-                            android:layout_marginBottom="16dp"
-                            android:layout_marginTop="16dp"
-                            android:gravity="right"
-                            android:orientation="vertical" />
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/marLinearLayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:text="Março"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
-
-                    <LinearLayout
-                        android:id="@+id/compromissoMarLinearLayout"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:orientation="vertical">
-
-                        <android.support.v7.widget.RecyclerView
-                            android:id="@+id/listaPedidoMarRecyclerView"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent" />
-
-                        <com.futuremind.recyclerviewfastscroll.FastScroller
-                            android:id="@+id/pedidoMarFastScroller"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="right"
-                            android:layout_marginBottom="16dp"
-                            android:layout_marginTop="16dp"
-                            android:gravity="right"
-                            android:orientation="vertical" />
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/abrLinearLayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:text="Abril"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
-
-                    <LinearLayout
-                        android:id="@+id/compromissoAbrLinearLayout"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:orientation="vertical">
-
-                        <android.support.v7.widget.RecyclerView
-                            android:id="@+id/listaPedidoAbrRecyclerView"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent" />
-
-                        <com.futuremind.recyclerviewfastscroll.FastScroller
-                            android:id="@+id/pedidoAbrFastScroller"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="right"
-                            android:layout_marginBottom="16dp"
-                            android:layout_marginTop="16dp"
-                            android:gravity="right"
-                            android:orientation="vertical" />
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/maiLinearLayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:text="Maio"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
-
-                    <LinearLayout
-                        android:id="@+id/compromissoMaiLinearLayout"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:orientation="vertical">
-
-                        <android.support.v7.widget.RecyclerView
-                            android:id="@+id/listaPedidoMaiRecyclerView"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent" />
-
-                        <com.futuremind.recyclerviewfastscroll.FastScroller
-                            android:id="@+id/pedidoMaiFastScroller"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="right"
-                            android:layout_marginBottom="16dp"
-                            android:layout_marginTop="16dp"
-                            android:gravity="right"
-                            android:orientation="vertical" />
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/junLinearLayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:text="Junho"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
-
-                    <LinearLayout
-                        android:id="@+id/compromissoJunLinearLayout"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:orientation="vertical">
-
-                        <android.support.v7.widget.RecyclerView
-                            android:id="@+id/listaPedidoJunRecyclerView"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent" />
-
-                        <com.futuremind.recyclerviewfastscroll.FastScroller
-                            android:id="@+id/pedidoJunFastScroller"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="right"
-                            android:layout_marginBottom="16dp"
-                            android:layout_marginTop="16dp"
-                            android:gravity="right"
-                            android:orientation="vertical" />
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/julLinearLayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:text="Julho"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
-
-                    <LinearLayout
-                        android:id="@+id/compromissoJulLinearLayout"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:orientation="vertical">
-
-                        <android.support.v7.widget.RecyclerView
-                            android:id="@+id/listaPedidoJulRecyclerView"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent" />
-
-                        <com.futuremind.recyclerviewfastscroll.FastScroller
-                            android:id="@+id/pedidoJulFastScroller"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="right"
-                            android:layout_marginBottom="16dp"
-                            android:layout_marginTop="16dp"
-                            android:gravity="right"
-                            android:orientation="vertical" />
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/agoLinearLayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:text="Agosto"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
-
-                    <LinearLayout
-                        android:id="@+id/compromissoAgoLinearLayout"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:orientation="vertical">
-
-                        <android.support.v7.widget.RecyclerView
-                            android:id="@+id/listaPedidoAgoRecyclerView"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent" />
-
-                        <com.futuremind.recyclerviewfastscroll.FastScroller
-                            android:id="@+id/pedidoAgoFastScroller"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="right"
-                            android:layout_marginBottom="16dp"
-                            android:layout_marginTop="16dp"
-                            android:gravity="right"
-                            android:orientation="vertical" />
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/setLinearLayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:text="Setembro"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
-
-                    <LinearLayout
-                        android:id="@+id/compromissoSetLinearLayout"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:orientation="vertical">
-
-                        <android.support.v7.widget.RecyclerView
-                            android:id="@+id/listaPedidoSetRecyclerView"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent" />
-
-                        <com.futuremind.recyclerviewfastscroll.FastScroller
-                            android:id="@+id/pedidoSetFastScroller"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="right"
-                            android:layout_marginBottom="16dp"
-                            android:layout_marginTop="16dp"
-                            android:gravity="right"
-                            android:orientation="vertical" />
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/outLinearLayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:text="Outubro"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
-
-                    <LinearLayout
-                        android:id="@+id/compromissoOutLinearLayout"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:orientation="vertical">
-
-                        <android.support.v7.widget.RecyclerView
-                            android:id="@+id/listaPedidoOutRecyclerView"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent" />
-
-                        <com.futuremind.recyclerviewfastscroll.FastScroller
-                            android:id="@+id/pedidoOutFastScroller"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="right"
-                            android:layout_marginBottom="16dp"
-                            android:layout_marginTop="16dp"
-                            android:gravity="right"
-                            android:orientation="vertical" />
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/novLinearLayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:text="Novembro"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
-
-                    <LinearLayout
-                        android:id="@+id/compromissoNovLinearLayout"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:orientation="vertical">
-
-                        <android.support.v7.widget.RecyclerView
-                            android:id="@+id/listaPedidoNovRecyclerView"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent" />
-
-                        <com.futuremind.recyclerviewfastscroll.FastScroller
-                            android:id="@+id/pedidoNovFastScroller"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="right"
-                            android:layout_marginBottom="16dp"
-                            android:layout_marginTop="16dp"
-                            android:gravity="right"
-                            android:orientation="vertical" />
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/dezLinearLayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:text="Dezembro"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
-
-                    <LinearLayout
-                        android:id="@+id/compromissoDezLinearLayout"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:orientation="vertical">
-
-                        <android.support.v7.widget.RecyclerView
-                            android:id="@+id/listaPedidoDezRecyclerView"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent" />
-
-                        <com.futuremind.recyclerviewfastscroll.FastScroller
-                            android:id="@+id/pedidoDezFastScroller"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="right"
-                            android:layout_marginBottom="16dp"
-                            android:layout_marginTop="16dp"
-                            android:gravity="right"
-                            android:orientation="vertical" />
-                    </LinearLayout>
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <android.support.design.widget.FloatingActionButton
-                android:id="@+id/novoProdutoFloatingActionButton2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom|right"
-                android:layout_margin="10dp"
-                android:src="@drawable/adiciona"
-                app:backgroundTint="#43b05c" />
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:id="@+id/anoTextView"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="10dp"
+                                    android:text="0000"
+                                    android:textAllCaps="false"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                                    android:textSize="35sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/janLinearLayout"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="5dp"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="5dp"
+                                    android:text="Janeiro"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+                                <LinearLayout
+                                    android:id="@+id/compromissoJanLinearLayout"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_margin="5dp"
+                                    android:orientation="vertical">
+
+                                    <android.support.v7.widget.RecyclerView
+                                        android:id="@+id/listaPedidoJanRecyclerView"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_margin="5dp" />
+
+                                    <com.futuremind.recyclerviewfastscroll.FastScroller
+                                        android:id="@+id/pedidoJanFastScroller"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_gravity="right"
+                                        android:layout_margin="5dp"
+                                        android:layout_marginBottom="16dp"
+                                        android:layout_marginTop="16dp"
+                                        android:gravity="right"
+                                        android:orientation="vertical" />
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/fevLinearLayout"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="5dp"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="5dp"
+                                    android:text="Fevereiro"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+                                <LinearLayout
+                                    android:id="@+id/compromissoFevLinearLayout"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_margin="5dp"
+                                    android:orientation="vertical">
+
+                                    <android.support.v7.widget.RecyclerView
+                                        android:id="@+id/listaPedidoFevRecyclerView"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent" />
+
+                                    <com.futuremind.recyclerviewfastscroll.FastScroller
+                                        android:id="@+id/pedidoFevFastScroller"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_gravity="right"
+                                        android:layout_marginBottom="16dp"
+                                        android:layout_marginTop="16dp"
+                                        android:gravity="right"
+                                        android:orientation="vertical" />
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/marLinearLayout"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="5dp"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="5dp"
+                                    android:text="Março"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+                                <LinearLayout
+                                    android:id="@+id/compromissoMarLinearLayout"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="5dp"
+                                    android:orientation="vertical">
+
+                                    <android.support.v7.widget.RecyclerView
+                                        android:id="@+id/listaPedidoMarRecyclerView"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent" />
+
+                                    <com.futuremind.recyclerviewfastscroll.FastScroller
+                                        android:id="@+id/pedidoMarFastScroller"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_gravity="right"
+                                        android:layout_marginBottom="16dp"
+                                        android:layout_marginTop="16dp"
+                                        android:gravity="right"
+                                        android:orientation="vertical" />
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/abrLinearLayout"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="5dp"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="5dp"
+                                    android:text="Abril"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+                                <LinearLayout
+                                    android:id="@+id/compromissoAbrLinearLayout"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="5dp"
+                                    android:orientation="vertical">
+
+                                    <android.support.v7.widget.RecyclerView
+                                        android:id="@+id/listaPedidoAbrRecyclerView"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent" />
+
+                                    <com.futuremind.recyclerviewfastscroll.FastScroller
+                                        android:id="@+id/pedidoAbrFastScroller"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_gravity="right"
+                                        android:layout_marginBottom="16dp"
+                                        android:layout_marginTop="16dp"
+                                        android:gravity="right"
+                                        android:orientation="vertical" />
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/maiLinearLayout"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="5dp"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="5dp"
+                                    android:text="Maio"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+                                <LinearLayout
+                                    android:id="@+id/compromissoMaiLinearLayout"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="5dp"
+                                    android:orientation="vertical">
+
+                                    <android.support.v7.widget.RecyclerView
+                                        android:id="@+id/listaPedidoMaiRecyclerView"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent" />
+
+                                    <com.futuremind.recyclerviewfastscroll.FastScroller
+                                        android:id="@+id/pedidoMaiFastScroller"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_gravity="right"
+                                        android:layout_marginBottom="16dp"
+                                        android:layout_marginTop="16dp"
+                                        android:gravity="right"
+                                        android:orientation="vertical" />
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/junLinearLayout"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="5dp"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="5dp"
+                                    android:text="Junho"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+                                <LinearLayout
+                                    android:id="@+id/compromissoJunLinearLayout"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="5dp"
+                                    android:orientation="vertical">
+
+                                    <android.support.v7.widget.RecyclerView
+                                        android:id="@+id/listaPedidoJunRecyclerView"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent" />
+
+                                    <com.futuremind.recyclerviewfastscroll.FastScroller
+                                        android:id="@+id/pedidoJunFastScroller"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_gravity="right"
+                                        android:layout_marginBottom="16dp"
+                                        android:layout_marginTop="16dp"
+                                        android:gravity="right"
+                                        android:orientation="vertical" />
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/julLinearLayout"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="5dp"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="5dp"
+                                    android:text="Julho"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+                                <LinearLayout
+                                    android:id="@+id/compromissoJulLinearLayout"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="5dp"
+                                    android:orientation="vertical">
+
+                                    <android.support.v7.widget.RecyclerView
+                                        android:id="@+id/listaPedidoJulRecyclerView"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent" />
+
+                                    <com.futuremind.recyclerviewfastscroll.FastScroller
+                                        android:id="@+id/pedidoJulFastScroller"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_gravity="right"
+                                        android:layout_marginBottom="16dp"
+                                        android:layout_marginTop="16dp"
+                                        android:gravity="right"
+                                        android:orientation="vertical" />
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/agoLinearLayout"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="5dp"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="5dp"
+                                    android:text="Agosto"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+                                <LinearLayout
+                                    android:id="@+id/compromissoAgoLinearLayout"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="5dp"
+                                    android:orientation="vertical">
+
+                                    <android.support.v7.widget.RecyclerView
+                                        android:id="@+id/listaPedidoAgoRecyclerView"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent" />
+
+                                    <com.futuremind.recyclerviewfastscroll.FastScroller
+                                        android:id="@+id/pedidoAgoFastScroller"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_gravity="right"
+                                        android:layout_marginBottom="16dp"
+                                        android:layout_marginTop="16dp"
+                                        android:gravity="right"
+                                        android:orientation="vertical" />
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/setLinearLayout"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="5dp"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="5dp"
+                                    android:text="Setembro"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+                                <LinearLayout
+                                    android:id="@+id/compromissoSetLinearLayout"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="5dp"
+                                    android:orientation="vertical">
+
+                                    <android.support.v7.widget.RecyclerView
+                                        android:id="@+id/listaPedidoSetRecyclerView"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent" />
+
+                                    <com.futuremind.recyclerviewfastscroll.FastScroller
+                                        android:id="@+id/pedidoSetFastScroller"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_gravity="right"
+                                        android:layout_marginBottom="16dp"
+                                        android:layout_marginTop="16dp"
+                                        android:gravity="right"
+                                        android:orientation="vertical" />
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/outLinearLayout"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="5dp"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="5dp"
+                                    android:text="Outubro"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+                                <LinearLayout
+                                    android:id="@+id/compromissoOutLinearLayout"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="5dp"
+                                    android:orientation="vertical">
+
+                                    <android.support.v7.widget.RecyclerView
+                                        android:id="@+id/listaPedidoOutRecyclerView"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent" />
+
+                                    <com.futuremind.recyclerviewfastscroll.FastScroller
+                                        android:id="@+id/pedidoOutFastScroller"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_gravity="right"
+                                        android:layout_marginBottom="16dp"
+                                        android:layout_marginTop="16dp"
+                                        android:gravity="right"
+                                        android:orientation="vertical" />
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/novLinearLayout"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="5dp"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="5dp"
+                                    android:text="Novembro"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+                                <LinearLayout
+                                    android:id="@+id/compromissoNovLinearLayout"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="5dp"
+                                    android:orientation="vertical">
+
+                                    <android.support.v7.widget.RecyclerView
+                                        android:id="@+id/listaPedidoNovRecyclerView"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent" />
+
+                                    <com.futuremind.recyclerviewfastscroll.FastScroller
+                                        android:id="@+id/pedidoNovFastScroller"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_gravity="right"
+                                        android:layout_marginBottom="16dp"
+                                        android:layout_marginTop="16dp"
+                                        android:gravity="right"
+                                        android:orientation="vertical" />
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/dezLinearLayout"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="5dp"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="5dp"
+                                    android:text="Dezembro"
+                                    android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+                                <LinearLayout
+                                    android:id="@+id/compromissoDezLinearLayout"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="5dp"
+                                    android:orientation="vertical">
+
+                                    <android.support.v7.widget.RecyclerView
+                                        android:id="@+id/listaPedidoDezRecyclerView"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent" />
+
+                                    <com.futuremind.recyclerviewfastscroll.FastScroller
+                                        android:id="@+id/pedidoDezFastScroller"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_gravity="right"
+                                        android:layout_marginBottom="16dp"
+                                        android:layout_marginTop="16dp"
+                                        android:gravity="right"
+                                        android:orientation="vertical" />
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+            -->
+
 
         </LinearLayout>
     </ScrollView>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/novoPedidoFloatingActionButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="bottom|right"
+        android:layout_margin="10dp"
+        android:src="@drawable/adiciona"
+        app:backgroundTint="#43b05c" />
 
 </FrameLayout>

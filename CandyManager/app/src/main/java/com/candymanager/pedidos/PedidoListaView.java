@@ -14,36 +14,41 @@ import java.util.ArrayList;
 
 public class PedidoListaView {
 
-    private RecyclerView pedidoRecyclerView;
-    private FastScroller scrollerRapidoFastScroller;
+    //private RecyclerView pedidoRecyclerView;
+    //private FastScroller scrollerRapidoFastScroller;
     private FloatingActionButton novoPedidoFloatingActionButton;
-    private PedidoAdapter pedidoAdapter;
+    //private PedidoAdapter pedidoAdapter;
 
 
-    public PedidoListaView(View view, ArrayList<ProdutoModel> lista) {
+    public PedidoListaView(View view, ArrayList<PedidoModel> lista) {
 
-        pedidoRecyclerView = (RecyclerView) view.findViewById(R.id.listaProdutoRecyclerView);
-        scrollerRapidoFastScroller = (FastScroller) view.findViewById(R.id.produtoFastScroller);
+        //pedidoRecyclerView = (RecyclerView) view.findViewById(R.id.listaProdutoRecyclerView);
+        //scrollerRapidoFastScroller = (FastScroller) view.findViewById(R.id.produtoFastScroller);
 
-        pedidoRecyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
-        pedidoAdapter =  new PedidoAdapter(view.getContext(), lista);
-        pedidoRecyclerView.setAdapter(pedidoAdapter);
-        scrollerRapidoFastScroller.setRecyclerView(pedidoRecyclerView);
+        //pedidoRecyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
+        //pedidoAdapter =  new PedidoAdapter(view.getContext(), lista);
+        //pedidoRecyclerView.setAdapter(pedidoAdapter);
+        //scrollerRapidoFastScroller.setRecyclerView(pedidoRecyclerView);
 
-        novoPedidoFloatingActionButton = (FloatingActionButton) view.findViewById(R.id.novoProdutoFloatingActionButton);
+        novoPedidoFloatingActionButton = (FloatingActionButton) view.findViewById(R.id.novoPedidoFloatingActionButton);
     }
 
-    public RecyclerView getPedidoRecyclerView() {
+   /* public RecyclerView getPedidoRecyclerView() {
         return pedidoRecyclerView;
     }
+    */
 
     public FloatingActionButton getNovoPedidooFloatingActionButton() {
         return novoPedidoFloatingActionButton;
     }
 
+
+    /*
     public PedidoAdapter getPedidoAdapter() {
         return pedidoAdapter;
     }
+
+    */
 
 
 }

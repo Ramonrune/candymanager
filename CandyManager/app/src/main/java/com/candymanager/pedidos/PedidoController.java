@@ -5,12 +5,14 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.candymanager.R;
 import com.candymanager.menu.MenuPrincipal;
+import com.candymanager.pedidos.cadastrar.PedidoAdicionaController;
 import com.candymanager.produtos.ProdutoController;
 import com.candymanager.produtos.alterar.ProdutoAlteraController;
 import com.candymanager.produtos.cadastrar.ProdutoAdicionaController;
@@ -31,7 +33,7 @@ public class PedidoController extends Fragment {
     public PedidoController() {
 
     }
-/*
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -40,24 +42,29 @@ public class PedidoController extends Fragment {
 
         ((MenuPrincipal) getActivity())
                 .setActionBarTitle("Pedidos");
-        return inflater.inflate(R.layout.fragment_pedido, container, false);
+        inicializaRecursos(inflater, container);
+        inicializaListeners();
+        return view;
     }
 
 
     private void inicializaListeners() {
-        produtoListaView.getNovoProdutoFloatingActionButton().setOnClickListener(new View.OnClickListener() {
+        pedidoListaView.getNovoPedidooFloatingActionButton().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                ProdutoAdicionaController produtoController = new ProdutoAdicionaController();
+                System.out.println("TESTEEEE ");
+                Log.d("testeee", "testeeeeee");
+                PedidoAdicionaController pedidoAdicionaController = new PedidoAdicionaController();
                 android.support.v4.app.FragmentManager manager = getActivity().getSupportFragmentManager();
 
-                manager.beginTransaction().replace(R.id.relative_layout_fragmento, produtoController, produtoController.getTag()).addToBackStack(null).commit();
+                manager.beginTransaction().replace(R.id.relative_layout_fragmento, pedidoAdicionaController, pedidoAdicionaController.getTag()).addToBackStack(null).commit();
 
 
             }
         });
 
+        /*
         pedidoListaView.getPedidoAdapter().setOnItemClickListener(new ItemClickListener() {
             @Override
             public void onItemClick(int position) {
@@ -124,12 +131,14 @@ public class PedidoController extends Fragment {
             }
         });
 
+        */
+
 
 
     }
 
     private void inicializaRecursos(LayoutInflater inflater, ViewGroup container) {
-        view = inflater.inflate(R.layout.fragment_produto, container, false);
+        view = inflater.inflate(R.layout.fragment_pedido, container, false);
         pedidoDAO = new PedidoDAO(container.getContext());
         pedidoListaView = new PedidoListaView(view, pedidoDAO.getLista());
         pedidoModel = new PedidoModel();
@@ -137,6 +146,6 @@ public class PedidoController extends Fragment {
 
 
     }
-*/
+
 
 }
