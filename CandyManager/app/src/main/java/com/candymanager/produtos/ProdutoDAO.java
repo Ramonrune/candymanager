@@ -137,9 +137,7 @@ public class ProdutoDAO {
                 ProdutoContrato.ProdutoEntrada.COLUNA_FOTO
         };
 
-
         String selection =  ProdutoContrato.ProdutoEntrada.COLUNA_ID_USUARIO + " = ?";
-
 
         String[] selectionArgs = { loginSharedPreferences.getId()};
         String ordenarPor =

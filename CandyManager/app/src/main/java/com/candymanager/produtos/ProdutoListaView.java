@@ -19,7 +19,6 @@ import java.util.List;
 
 public class ProdutoListaView {
 
-
     private RecyclerView produtoRecyclerView;
     private FastScroller scrollerRapidoFastScroller;
     private FloatingActionButton novoProdutoFloatingActionButton;
@@ -50,4 +49,5 @@ public class ProdutoListaView {
     public ProdutoAdapter getProdutoAdapter() {
         return produtoAdapter;
     }
+
 }

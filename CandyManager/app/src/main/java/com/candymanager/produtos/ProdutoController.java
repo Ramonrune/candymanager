@@ -137,9 +137,6 @@ public class ProdutoController extends Fragment {
 
     }
 
-
-
-
     private void inicializaRecursos(LayoutInflater inflater, ViewGroup container) {
         view = inflater.inflate(R.layout.fragment_produto, container, false);
         produtoDAO = new ProdutoDAO(container.getContext());
@@ -149,8 +146,5 @@ public class ProdutoController extends Fragment {
 
 
     }
-
-
-
 
 }

@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import com.candymanager.R;
 import com.candymanager.cliente.ClienteController;
 import com.candymanager.menu.MenuPrincipal;
+import com.candymanager.pedidos.PedidoController;
 import com.candymanager.produtos.ProdutoController;
 
 /**
@@ -60,6 +61,22 @@ public class HomeController extends Fragment {
                 ProdutoController produtoController = new ProdutoController();
 
                 manager.beginTransaction().replace(R.id.relative_layout_fragmento, produtoController, produtoController.getTag()).addToBackStack(null).commit();
+            }
+        });
+
+
+        homeView.getPedidosLayout().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ((MenuPrincipal) getActivity())
+                        .setCheckedItem(R.id.nav_pedidos);
+
+                android.support.v4.app.FragmentManager manager = getActivity().getSupportFragmentManager();
+
+                PedidoController pedidoController = new PedidoController();
+                manager.beginTransaction().replace(R.id.relative_layout_fragmento, pedidoController, pedidoController.getTag()).addToBackStack(null).commit();
+
+
             }
         });
         return view;
