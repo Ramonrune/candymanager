@@ -4,12 +4,18 @@ import java.util.Date;
 
 public class PedidoModel {
 
-    private String idPedido;
-    private Date data;
-    private String endereco;
-    private String cep;
-    private String numero;
-    private String bairro;
+    private String      idPedido;
+    private String      cliente;
+    private String      endereco;
+    private String      cep;
+    private String      numero;
+    private String      bairro;
+
+    private String      margemLucro;
+    private String      precoVenda;
+    private String      valorTotalGasto;
+
+    private Date        data;
 
     public long getData() {
         return data.getTime();
@@ -59,4 +65,15 @@ public class PedidoModel {
         this.endereco = endereco;
     }
 
+    public String getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(String cliente) {
+        this.cliente = cliente;
+    }
+
+    public void setData(Date data) {
+        this.data = data;
+    }
 }
