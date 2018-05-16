@@ -65,76 +65,98 @@
                 android:background="@color/cardview_light_background"
                 android:orientation="vertical">
 
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="5dp">
 
-                    <TextView
-                        android:layout_width="75dp"
-                        android:layout_height="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:text="Doce"
-                        android:textColor="@android:color/background_dark" />
+                        android:orientation="vertical">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Doce"
+                            android:textColor="@android:color/background_dark" />
+
+                        <Spinner
+                            android:id="@+id/doceSpinner"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginRight="5dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/custom_edittext_gray"
+                            android:inputType="textPersonName" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:text="Quantidade"
-                        android:textColor="@android:color/background_dark" />
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:layout_weight="1"
+                            android:text="Quantidade"
+                            android:textColor="@android:color/background_dark" />
+
+                        <EditText
+                            android:id="@+id/quantidadeDoceEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layout_margin="5dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/custom_edittext_gray"
+                            android:inputType="textPersonName"
+                            android:textColor="@android:color/background_dark" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <ImageButton
+                            android:id="@+id/acrescentaDoceImageButton"
+                            android:layout_width="27dp"
+                            android:layout_height="27dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="20dp"
+                            android:background="@android:color/transparent"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/mais" />
+
+                        <ImageButton
+                            android:id="@+id/decresmentaDoceImageButton"
+                            android:layout_width="27dp"
+                            android:layout_height="27dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="20dp"
+                            android:background="@android:color/transparent"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/menos" />
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
-                    <Spinner
-                        android:id="@+id/doceSpinner"
-                        android:layout_width="142dp"
-                        android:layout_height="40dp"
-                        android:layout_margin="5dp"
-                        android:background="@drawable/custom_edittext_gray"
-                        android:inputType="textPersonName" />
-
-                    <EditText
-                        android:id="@+id/quantidadeDoceEditText"
-                        android:layout_width="71dp"
-                        android:layout_height="40dp"
-                        android:layout_margin="5dp"
-                        android:background="@drawable/custom_edittext_gray"
-                        android:inputType="textPersonName"
-                        android:textColor="@android:color/background_dark" />
-
-                    <ImageButton
-                        android:id="@+id/acrescentaDoceImageButton"
-                        android:layout_width="27dp"
-                        android:layout_height="27dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="5dp"
-                        android:background="@android:color/transparent"
-                        android:scaleType="centerInside"
-                        android:src="@drawable/mais" />
-
-                    <ImageButton
-                        android:id="@+id/decresmentaDoceImageButton"
-                        android:layout_width="27dp"
-                        android:layout_height="27dp"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="5dp"
-                        android:background="@android:color/transparent"
-                        android:scaleType="centerInside"
-                        android:src="@drawable/menos" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:layout_margin="5dp">
+                    android:layout_margin="5dp"
+                    android:orientation="vertical">
 
                     <TextView
                         android:layout_width="match_parent"
@@ -144,90 +166,111 @@
 
                     <EditText
                         android:id="@+id/valorTotalDosGastosEditText"
-                        android:layout_width="match_parent"
+                        android:layout_width="230dp"
                         android:layout_height="40dp"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginTop="5dp"
                         android:background="@drawable/custom_edittext_gray"
                         android:hint=" R$"
                         android:inputType="textPersonName"
                         android:textColor="@android:color/background_dark" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    android:layout_margin="5dp">
-
-                    <TextView
-                        android:id="@+id/textView5"
-                        android:layout_width="116dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Preço de venda"
-                        android:textColor="@android:color/background_dark" />
-
-                    <TextView
-                        android:id="@+id/textView6"
-                        android:layout_width="104dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Margem de lucro"
-                        android:textColor="@android:color/background_dark" />
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="320dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
+                    android:layout_marginBottom="10dp"
                     android:orientation="horizontal">
 
-                    <EditText
-                        android:id="@+id/precoDeVendaEditText"
-                        android:layout_width="162dp"
-                        android:layout_height="40dp"
+                    <LinearLayout
+                        android:layout_width="153dp"
+                        android:layout_height="wrap_content"
                         android:layout_margin="5dp"
-                        android:background="@drawable/custom_edittext_gray"
-                        android:hint=" R$"
-                        android:inputType="textPersonName" />
+                        android:layout_weight="1"
+                        android:orientation="vertical">
 
-                    <Spinner
-                        android:id="@+id/margemDeLucroSpinner"
-                        android:layout_width="80dp"
-                        android:layout_height="40dp"
+                        <TextView
+                            android:id="@+id/textView6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Margem de lucro"
+                            android:textColor="@android:color/background_dark" />
+
+                        <Spinner
+                            android:id="@+id/margemDeLucroSpinner"
+                            android:layout_width="108dp"
+                            android:layout_height="40dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginRight="5dp"
+                            android:layout_marginTop="5dp"
+                            android:background="@drawable/custom_edittext_gray"
+                            android:hint=" %"
+                            android:inputType="textPersonName"
+                            android:textColor="@android:color/background_dark" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_margin="5dp"
-                        android:layout_marginLeft="10dp"
-                        android:background="@drawable/custom_edittext_gray"
-                        android:hint=" %"
-                        android:inputType="textPersonName"
-                        android:textColor="@android:color/background_dark" />
+                        android:orientation="vertical">
 
+                        <TextView
+                            android:id="@+id/textView5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Preço de venda"
+                            android:textColor="@android:color/background_dark" />
+
+                        <EditText
+                            android:id="@+id/precoDeVendaEditText"
+                            android:layout_width="183dp"
+                            android:layout_height="40dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginRight="5dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/custom_edittext_gray"
+                            android:hint=" R$"
+                            android:inputType="textPersonName" />
+
+                    </LinearLayout>
                 </LinearLayout>
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <ImageButton
-                        android:id="@+id/agendaImageButton"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_alignParentEnd="true"
-                        android:layout_alignParentRight="true"
-                        android:layout_alignParentTop="true"
-                        android:background="@android:color/transparent"
-                        android:scaleType="fitCenter"
-                        android:src="@drawable/adicionar" />
-                </RelativeLayout>
 
             </LinearLayout>
 
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:layout_marginTop="10dp">
+
+                <ImageButton
+                    android:id="@+id/agendaImageButton"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="5dp"
+                    android:background="@android:color/transparent"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/adicionar" />
+
+            </RelativeLayout>
+
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="5dp"
+                android:layout_weight="1"
                 android:text="Data"
                 android:textColor="@android:color/background_dark" />
 
