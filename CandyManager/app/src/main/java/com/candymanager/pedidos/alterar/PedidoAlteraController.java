@@ -65,7 +65,7 @@ public class PedidoAlteraController extends Fragment {
 
         pedidoAlteraView.getBairroEditText().setText(model.getBairro());
         pedidoAlteraView.getCepEditText().setText(model.getCep());
-        pedidoAlteraView.getClienteEditText().setText(model.getCliente());
+        //pedidoAlteraView.getClienteEditText().setText(model.getCliente());
         pedidoAlteraView.getEnderecoEditText().setText(model.getEndereco());
         pedidoAlteraView.getNumeroEditText().setText(model.getNumero());
 

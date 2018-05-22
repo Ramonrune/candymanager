@@ -29,20 +29,20 @@ public class ClienteDAO {
 
     private Context contexto;
 
-    public void setContext(Context contexto){
+    public void setContext(Context contexto) {
         this.contexto = contexto;
     }
 
-    public Context getContext(){
+    public Context getContext() {
         return this.contexto;
     }
 
-    public ClienteDAO(Context context){
+    public ClienteDAO(Context context) {
         clienteAjudante = new ClienteAjudante(context);
         this.contexto = context;
     }
 
-    public boolean cadastrar(ClienteModel model){
+    public boolean cadastrar(ClienteModel model) {
 
         SQLiteDatabase db = clienteAjudante.getWritableDatabase();
 
@@ -61,7 +61,7 @@ public class ClienteDAO {
 
         long newRowId = db.insert(ClienteContrato.ClienteEntrada.NOME_TABELA, null, values);
 
-        if(newRowId == -1){
+        if (newRowId == -1) {
             return false;
         }
 
@@ -69,7 +69,7 @@ public class ClienteDAO {
 
     }
 
-    public boolean alterar(ClienteModel model){
+    public boolean alterar(ClienteModel model) {
         LoginSharedPreferences loginSharedPreferences = new LoginSharedPreferences(contexto);
 
         SQLiteDatabase db = clienteAjudante.getWritableDatabase();
@@ -83,10 +83,10 @@ public class ClienteDAO {
 
 
         String selection = ClienteContrato.ClienteEntrada.COLUNA_ID_CLIENTE + " = ? AND " + ClienteContrato.ClienteEntrada.COLUNA_ID_USUARIO + " = ?";
-        String[] selectionArgs = { model.getId(), loginSharedPreferences.getId() };
+        String[] selectionArgs = {model.getId(), loginSharedPreferences.getId()};
 
 
-        long newRowId =  db.update(
+        long newRowId = db.update(
                 ClienteContrato.ClienteEntrada.NOME_TABELA,
                 values,
                 selection,
@@ -94,7 +94,7 @@ public class ClienteDAO {
 
         System.out.println(newRowId);
 
-        if(newRowId == -1){
+        if (newRowId == -1) {
             return false;
         }
 
@@ -103,23 +103,23 @@ public class ClienteDAO {
     }
 
 
-    public boolean excluir(ClienteModel model){
+    public boolean excluir(ClienteModel model) {
         LoginSharedPreferences loginSharedPreferences = new LoginSharedPreferences(contexto);
 
         SQLiteDatabase db = clienteAjudante.getWritableDatabase();
 
 
         String selection = ClienteContrato.ClienteEntrada.COLUNA_ID_CLIENTE + " = ? AND " + ClienteContrato.ClienteEntrada.COLUNA_ID_USUARIO + " = ?";
-        String[] selectionArgs = { model.getId(), loginSharedPreferences.getId() };
+        String[] selectionArgs = {model.getId(), loginSharedPreferences.getId()};
 
 
-        long newRowId =  db.delete(
+        long newRowId = db.delete(
                 ClienteContrato.ClienteEntrada.NOME_TABELA,
                 selection,
                 selectionArgs);
 
 
-        if(newRowId == -1){
+        if (newRowId == -1) {
             return false;
         }
 
@@ -127,7 +127,7 @@ public class ClienteDAO {
 
     }
 
-    public ArrayList<ClienteModel> getLista(){
+    public ArrayList<ClienteModel> getLista() {
         LoginSharedPreferences loginSharedPreferences = new LoginSharedPreferences(contexto);
 
 
@@ -146,12 +146,12 @@ public class ClienteDAO {
         };
 
 
-        String selection =  ClienteContrato.ClienteEntrada.COLUNA_ID_USUARIO + " = ?";
+        String selection = ClienteContrato.ClienteEntrada.COLUNA_ID_USUARIO + " = ?";
 
 
-        String[] selectionArgs = { loginSharedPreferences.getId()};
+        String[] selectionArgs = {loginSharedPreferences.getId()};
         String ordenarPor =
-                ClienteContrato.ClienteEntrada.COLUNA_NOME+ " COLLATE NOCASE ASC";
+                ClienteContrato.ClienteEntrada.COLUNA_NOME + " COLLATE NOCASE ASC";
         Cursor cursor = db.query(
                 ClienteContrato.ClienteEntrada.NOME_TABELA,
                 projection,
@@ -161,7 +161,6 @@ public class ClienteDAO {
                 null,
                 ordenarPor
         );
-
 
 
         if (cursor.moveToFirst()) {
@@ -180,14 +179,62 @@ public class ClienteDAO {
         db.close();
 
 
-
-
-
         return lista;
 
     }
 
 
+    public ClienteModel getCliente(String clienteId) {
+
+
+        SQLiteDatabase db = clienteAjudante.getReadableDatabase();
+
+        String[] projection = {
+                ClienteContrato.ClienteEntrada.COLUNA_ID_CLIENTE,
+                ClienteContrato.ClienteEntrada.COLUNA_ID_USUARIO,
+                ClienteContrato.ClienteEntrada.COLUNA_NOME,
+                ClienteContrato.ClienteEntrada.COLUNA_EMAIL,
+                ClienteContrato.ClienteEntrada.COLUNA_TELEFONE,
+                ClienteContrato.ClienteEntrada.COLUNA_FOTO
+
+        };
+
+
+        String selection = ClienteContrato.ClienteEntrada.COLUNA_ID_CLIENTE + " = ?";
+
+
+        String[] selectionArgs = {clienteId};
+        String ordenarPor =
+                ClienteContrato.ClienteEntrada.COLUNA_NOME + " COLLATE NOCASE ASC";
+        Cursor cursor = db.query(
+                ClienteContrato.ClienteEntrada.NOME_TABELA,
+                projection,
+                selection,
+                selectionArgs,
+                null,
+                null,
+                ordenarPor
+        );
+
+
+        ClienteModel cliente = new ClienteModel();
+
+        if (cursor.moveToFirst()) {
+
+            cliente.setNome(cursor.getString(cursor.getColumnIndexOrThrow(ClienteContrato.ClienteEntrada.COLUNA_NOME)));
+            cliente.setEmail(cursor.getString(cursor.getColumnIndexOrThrow(ClienteContrato.ClienteEntrada.COLUNA_EMAIL)));
+            cliente.setTelefone(cursor.getString(cursor.getColumnIndexOrThrow(ClienteContrato.ClienteEntrada.COLUNA_TELEFONE)));
+            cliente.setId(cursor.getString(cursor.getColumnIndexOrThrow(ClienteContrato.ClienteEntrada.COLUNA_ID_CLIENTE)));
+            cliente.setImagem(cursor.getBlob(cursor.getColumnIndexOrThrow(ClienteContrato.ClienteEntrada.COLUNA_FOTO)));
+
+
+        }
+        db.close();
+
+
+        return cliente;
+
+    }
 
 
 }

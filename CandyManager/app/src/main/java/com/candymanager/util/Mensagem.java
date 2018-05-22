@@ -1,5 +1,6 @@
 package com.candymanager.util;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentManager;
@@ -22,6 +23,19 @@ import com.candymanager.menu.MenuPrincipal;
 public class Mensagem {
 
     public static void mostrarDialogo(AppCompatActivity activity, String titulo, String mensagem){
+        AlertDialog alertDialog = new AlertDialog.Builder(activity).create();
+        alertDialog.setTitle(titulo);
+        alertDialog.setMessage(mensagem);
+        alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+        alertDialog.show();
+    }
+
+    public static void mostrarDialogoFragment(Activity activity, String titulo, String mensagem){
         AlertDialog alertDialog = new AlertDialog.Builder(activity).create();
         alertDialog.setTitle(titulo);
         alertDialog.setMessage(mensagem);

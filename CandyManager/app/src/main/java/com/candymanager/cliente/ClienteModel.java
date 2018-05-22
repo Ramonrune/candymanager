@@ -50,4 +50,12 @@ public class ClienteModel {
     public void setImagem(byte[] imagem) {
         this.imagem = imagem;
     }
+
+
+    public String toString(){
+        return this.nome;
+    }
+
+
+
 }

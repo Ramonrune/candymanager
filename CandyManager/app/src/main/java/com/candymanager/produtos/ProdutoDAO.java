@@ -26,20 +26,20 @@ public class ProdutoDAO {
 
     private Context contexto;
 
-    public void setContext(Context contexto){
+    public void setContext(Context contexto) {
         this.contexto = contexto;
     }
 
-    public Context getContext(){
+    public Context getContext() {
         return this.contexto;
     }
 
-    public ProdutoDAO(Context context){
+    public ProdutoDAO(Context context) {
         produtoAjudante = new ProdutoAjudante(context);
         this.contexto = context;
     }
 
-    public boolean cadastrar(ProdutoModel model){
+    public boolean cadastrar(ProdutoModel model) {
 
         SQLiteDatabase db = produtoAjudante.getWritableDatabase();
 
@@ -57,7 +57,7 @@ public class ProdutoDAO {
 
         long newRowId = db.insert(ProdutoContrato.ProdutoEntrada.NOME_TABELA, null, values);
 
-        if(newRowId == -1){
+        if (newRowId == -1) {
             return false;
         }
 
@@ -65,7 +65,7 @@ public class ProdutoDAO {
 
     }
 
-    public boolean alterar(ProdutoModel model){
+    public boolean alterar(ProdutoModel model) {
         LoginSharedPreferences loginSharedPreferences = new LoginSharedPreferences(contexto);
 
         SQLiteDatabase db = produtoAjudante.getWritableDatabase();
@@ -77,18 +77,18 @@ public class ProdutoDAO {
         values.put(ProdutoContrato.ProdutoEntrada.COLUNA_FOTO, model.getImagem());
 
 
-        String selection =ProdutoContrato.ProdutoEntrada.COLUNA_ID_PRODUTO + " = ? AND " + ProdutoContrato.ProdutoEntrada.COLUNA_ID_USUARIO + " = ?";
-        String[] selectionArgs = { model.getIdProduto(), loginSharedPreferences.getId() };
+        String selection = ProdutoContrato.ProdutoEntrada.COLUNA_ID_PRODUTO + " = ? AND " + ProdutoContrato.ProdutoEntrada.COLUNA_ID_USUARIO + " = ?";
+        String[] selectionArgs = {model.getIdProduto(), loginSharedPreferences.getId()};
 
 
-        long newRowId =  db.update(
+        long newRowId = db.update(
                 ProdutoContrato.ProdutoEntrada.NOME_TABELA,
                 values,
                 selection,
                 selectionArgs);
 
 
-        if(newRowId == -1){
+        if (newRowId == -1) {
             return false;
         }
 
@@ -97,23 +97,23 @@ public class ProdutoDAO {
     }
 
 
-    public boolean excluir(ProdutoModel model){
+    public boolean excluir(ProdutoModel model) {
         LoginSharedPreferences loginSharedPreferences = new LoginSharedPreferences(contexto);
 
         SQLiteDatabase db = produtoAjudante.getWritableDatabase();
 
 
         String selection = ProdutoContrato.ProdutoEntrada.COLUNA_ID_PRODUTO + " = ? AND " + ProdutoContrato.ProdutoEntrada.COLUNA_ID_USUARIO + " = ?";
-        String[] selectionArgs = { model.getIdProduto(), loginSharedPreferences.getId() };
+        String[] selectionArgs = {model.getIdProduto(), loginSharedPreferences.getId()};
 
 
-        long newRowId =  db.delete(
+        long newRowId = db.delete(
                 ProdutoContrato.ProdutoEntrada.NOME_TABELA,
                 selection,
                 selectionArgs);
 
 
-        if(newRowId == -1){
+        if (newRowId == -1) {
             return false;
         }
 
@@ -121,7 +121,54 @@ public class ProdutoDAO {
 
     }
 
-    public ArrayList<ProdutoModel> getLista(){
+    public ProdutoModel getProduto(String uuid) {
+
+        ProdutoModel produtoModel = new ProdutoModel();
+
+        SQLiteDatabase db = produtoAjudante.getReadableDatabase();
+
+        String[] projection = {
+                ProdutoContrato.ProdutoEntrada.COLUNA_ID_PRODUTO,
+                ProdutoContrato.ProdutoEntrada.COLUNA_ID_USUARIO,
+                ProdutoContrato.ProdutoEntrada.COLUNA_NOME,
+                ProdutoContrato.ProdutoEntrada.COLUNA_DESCRICAO,
+                ProdutoContrato.ProdutoEntrada.COLUNA_FOTO
+        };
+
+        String selection = ProdutoContrato.ProdutoEntrada.COLUNA_ID_PRODUTO + " = ?";
+
+        String[] selectionArgs = {uuid};
+        String ordenarPor =
+                ProdutoContrato.ProdutoEntrada.COLUNA_NOME + " COLLATE NOCASE ASC";
+        Cursor cursor = db.query(
+                ProdutoContrato.ProdutoEntrada.NOME_TABELA,
+                projection,
+                selection,
+                selectionArgs,
+                null,
+                null,
+                ordenarPor
+        );
+
+
+        if (cursor.moveToFirst()) {
+
+            produtoModel.setNome(cursor.getString(cursor.getColumnIndexOrThrow(ProdutoContrato.ProdutoEntrada.COLUNA_NOME)));
+            produtoModel.setDescricao(cursor.getString(cursor.getColumnIndexOrThrow(ProdutoContrato.ProdutoEntrada.COLUNA_DESCRICAO)));
+            produtoModel.setIdProduto(cursor.getString(cursor.getColumnIndexOrThrow(ProdutoContrato.ProdutoEntrada.COLUNA_ID_PRODUTO)));
+            produtoModel.setImagem(cursor.getBlob(cursor.getColumnIndexOrThrow(ProdutoContrato.ProdutoEntrada.COLUNA_FOTO)));
+
+
+        }
+        db.close();
+
+
+        return produtoModel;
+
+    }
+
+
+    public ArrayList<ProdutoModel> getLista() {
         LoginSharedPreferences loginSharedPreferences = new LoginSharedPreferences(contexto);
 
 
@@ -137,11 +184,11 @@ public class ProdutoDAO {
                 ProdutoContrato.ProdutoEntrada.COLUNA_FOTO
         };
 
-        String selection =  ProdutoContrato.ProdutoEntrada.COLUNA_ID_USUARIO + " = ?";
+        String selection = ProdutoContrato.ProdutoEntrada.COLUNA_ID_USUARIO + " = ?";
 
-        String[] selectionArgs = { loginSharedPreferences.getId()};
+        String[] selectionArgs = {loginSharedPreferences.getId()};
         String ordenarPor =
-                ProdutoContrato.ProdutoEntrada.COLUNA_NOME+ " COLLATE NOCASE ASC";
+                ProdutoContrato.ProdutoEntrada.COLUNA_NOME + " COLLATE NOCASE ASC";
         Cursor cursor = db.query(
                 ProdutoContrato.ProdutoEntrada.NOME_TABELA,
                 projection,
@@ -151,7 +198,6 @@ public class ProdutoDAO {
                 null,
                 ordenarPor
         );
-
 
 
         if (cursor.moveToFirst()) {
@@ -174,12 +220,8 @@ public class ProdutoDAO {
         db.close();
 
 
-
-
-
         return lista;
 
     }
-
 
 }

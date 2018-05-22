@@ -43,7 +43,7 @@
                     android:text="Produtos"
                     android:textColor="#000"
 
-                    android:textSize="30sp" />
+                    android:textSize="20sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -71,7 +71,7 @@
                     android:text="Pedidos"
                     android:textColor="#000"
 
-                    android:textSize="30sp" />
+                    android:textSize="20sp" />
             </LinearLayout>
 
 
@@ -100,7 +100,7 @@
                     android:text="Clientes"
                     android:textColor="#000"
 
-                    android:textSize="30sp" />
+                    android:textSize="20sp" />
             </LinearLayout>
 
 
@@ -113,7 +113,7 @@
 
                 <ImageView
                     android:id="@+id/imageView3"
-                    android:layout_width="89dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:layout_weight="1"
@@ -128,7 +128,7 @@
                     android:text="Redes sociais"
                     android:textColor="#000"
 
-                    android:textSize="30sp" />
+                    android:textSize="20sp" />
             </LinearLayout>
 
         </LinearLayout>

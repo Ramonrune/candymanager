@@ -1,28 +1,35 @@
 package com.candymanager.pedidos;
 
+import com.candymanager.cliente.ClienteModel;
+
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class PedidoModel {
 
-    private String      idPedido;
-    private String      cliente;
-    private String      endereco;
-    private String      cep;
-    private String      numero;
-    private String      bairro;
+    private long idLista;
+    private String idPedido;
+    private ClienteModel cliente;
+    private String endereco;
+    private String cep;
+    private String numero;
+    private String bairro;
 
-    private String      margemLucro;
-    private String      precoVenda;
-    private String      valorTotalGasto;
+    private String margemLucro;
+    private String precoVenda;
+    private String valorTotalGasto;
 
-    private Date        data;
+    private long data;
+
+    private List<ItemPedidoModel> listaItemsDePedido = new ArrayList<>();
 
     public long getData() {
-        return data.getTime();
+        return data;
     }
 
-    public void setData(Long data) {
-        this.data = new Date(data);
+    public void setData(long data) {
+        this.data = data;
     }
 
     public String getCep() {
@@ -65,15 +72,27 @@ public class PedidoModel {
         this.endereco = endereco;
     }
 
-    public String getCliente() {
+    public ClienteModel getCliente() {
         return cliente;
     }
 
-    public void setCliente(String cliente) {
+    public void setCliente(ClienteModel cliente) {
         this.cliente = cliente;
     }
 
-    public void setData(Date data) {
-        this.data = data;
+    public List<ItemPedidoModel> getListaItemsDePedido() {
+        return listaItemsDePedido;
+    }
+
+    public void adicionaItemPedido(ItemPedidoModel itemPedidoModel){
+        listaItemsDePedido.add(itemPedidoModel);
+    }
+
+    public long getIdLista() {
+        return idLista;
+    }
+
+    public void setIdLista(long idLista) {
+        this.idLista = idLista;
     }
 }

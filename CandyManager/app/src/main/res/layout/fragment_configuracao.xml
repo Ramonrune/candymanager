@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/colorAccent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/colorAccent">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -16,34 +15,48 @@
             android:orientation="vertical"
             android:padding="32dp">
 
-            <Switch
-                android:id="@+id/switch1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:text="Notificações" />
+            <!--   <com.facebook.login.widget.LoginButton
+                   android:id="@+id/login_button"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_gravity="center_horizontal"
+                   android:layout_marginTop="30dp"
+                   android:layout_marginBottom="30dp" />
+   -->
 
-            <Switch
-                android:id="@+id/facebookSwitch2"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:text="Facebook" />
+                android:layout_height="match_parent"
+                android:background="@drawable/custom_edittext_white"
+                android:orientation="vertical">
 
-            <Switch
-                android:id="@+id/instagramSwitch3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:text="Instagram" />
+                <Switch
+                    android:id="@+id/facebookSwitch"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="16dp"
+                    android:drawableLeft="@drawable/facebook_mini"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
 
-            <Switch
-                android:id="@+id/twitterSwitch4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:text="Twitter" />
+                    android:text="  Facebook" />
 
+                <Switch
+                    android:id="@+id/instagramSwitch"
+                    android:layout_width="match_parent"
+                    android:drawableLeft="@drawable/instagram_mini"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:text="  Instagram" />
+
+                <Switch
+                    android:id="@+id/twitterSwitch4"
+                    android:drawableLeft="@drawable/twitter_mini"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:text="  Twitter" />
+
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

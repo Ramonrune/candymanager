@@ -1,50 +1,105 @@
 package com.candymanager.social;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class RedeSocialModel {
 
-    private boolean facebookAtivo;
-    private boolean instagramAtivo;
-    private boolean twitterAtivo;
-    private String titulo;
-    private String imagem;
+    private String id;
+    private String picture;
+    private String fullPicture;
+    private int likes;
+    private int comments;
+    private String createdTime;
+    private String description;
+    private int type;
 
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
+
+    public String getId() {
+        return id;
     }
 
-    public String getTitulo() {
-        return titulo;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public void setImagem(String imagem) {
-        this.imagem = imagem;
+    public String getPicture() {
+        return picture;
     }
 
-    public String getImagem() {
-        return imagem;
+    public void setPicture(String picture) {
+        this.picture = picture;
     }
 
-    public boolean isFacebookAtivo() {
-        return facebookAtivo;
+    public String getFullPicture() {
+        return fullPicture;
     }
 
-    public boolean isInstagramAtivo() {
-        return instagramAtivo;
+    public void setFullPicture(String fullPicture) {
+        this.fullPicture = fullPicture;
     }
 
-    public boolean isTwitterAtivo() {
-        return twitterAtivo;
+    public int getLikes() {
+        return likes;
     }
 
-    public void setFacebookAtivo(boolean facebookAtivo) {
-        this.facebookAtivo = facebookAtivo;
+    public void setLikes(int likes) {
+        this.likes = likes;
     }
 
-    public void setInstagramAtivo(boolean instagramAtivo) {
-        this.instagramAtivo = instagramAtivo;
+    public int getComments() {
+        return comments;
     }
 
-    public void setTwitterAtivo(boolean twitterAtivo) {
-        this.twitterAtivo = twitterAtivo;
+    public void setComments(int comments) {
+        this.comments = comments;
+    }
+
+    public String getCreatedTime() {
+        return createdTime;
+    }
+
+
+    public void setCreatedTime(String createdTime) {
+        if (createdTime != null) {
+
+            if (type == 1) {
+                try {
+
+                    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ");
+                    Date date = dateFormat.parse(createdTime);
+
+                    dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+                    createdTime = dateFormat.format(date);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            if(type == 2){
+                Date date = new Date(Long.parseLong(createdTime) * 1000);
+                SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+                createdTime = dateFormat.format(date);
+
+
+            }
+        }
+
+        this.createdTime = createdTime;
+    }
+
+    public String getDescription() {
+        return description.trim().equals("") ? "Sem descrição" : description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
     }
 }

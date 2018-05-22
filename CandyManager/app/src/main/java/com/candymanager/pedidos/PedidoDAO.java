@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 
+import com.candymanager.cliente.ClienteDAO;
 import com.candymanager.db.PedidoAjudante;
 import com.candymanager.db.PedidoContrato;
 import com.candymanager.db.ProdutoContrato;
@@ -29,12 +30,21 @@ public class PedidoDAO {
         return this.contexto;
     }
 
+    private ClienteDAO clienteDAO;
+    private ItemPedidoDAO itemPedidoDAO;
+
     public PedidoDAO(Context context){
         pedidoAjudante = new PedidoAjudante(context);
+        itemPedidoDAO = new ItemPedidoDAO(context);
+
         this.contexto = context;
+        clienteDAO = new ClienteDAO(context);
     }
 
     public boolean cadastrar(PedidoModel model){
+
+
+        System.out.println(model.getCliente().getId() + "--------");
 
         SQLiteDatabase db = pedidoAjudante.getWritableDatabase();
 
@@ -50,11 +60,28 @@ public class PedidoDAO {
         values.put(PedidoContrato.PedidoEntrada.COLUNA_ENDERECO, model.getEndereco());
         values.put(PedidoContrato.PedidoEntrada.COLUNA_NUMERO, model.getNumero());
         values.put(PedidoContrato.PedidoEntrada.COLUNA_DATA, model.getData());
+        values.put(PedidoContrato.PedidoEntrada.COLUNA_ID_CLIENTE, model.getCliente().getId());
         values.put(PedidoContrato.PedidoEntrada.COLUNA_ID_USUARIO, loginSharedPreferences.getId());
-        long newRowId = db.insert(ProdutoContrato.ProdutoEntrada.NOME_TABELA, null, values);
+        long newRowId = db.insert(PedidoContrato.PedidoEntrada.NOME_TABELA, null, values);
 
         if(newRowId == -1){
             return false;
+        }
+        else{
+
+            boolean sucesso = true;
+            for(ItemPedidoModel modelPedido : model.getListaItemsDePedido()){
+                if(!itemPedidoDAO.cadastrar(modelPedido, uuid)){
+                    sucesso = false;
+                    break;
+                }
+            }
+
+            if(!sucesso){
+                return false;
+            }
+
+
         }
 
         return true;
@@ -95,13 +122,12 @@ public class PedidoDAO {
 
 
     public boolean excluir(PedidoModel model){
-        LoginSharedPreferences loginSharedPreferences = new LoginSharedPreferences(contexto);
 
         SQLiteDatabase db = pedidoAjudante.getWritableDatabase();
 
 
-        String selection = PedidoContrato.PedidoEntrada.COLUNA_ID_PEDIDO + " = ? AND " + PedidoContrato.PedidoEntrada.COLUNA_ID_USUARIO + " = ?";
-        String[] selectionArgs = { model.getIdPedido(), loginSharedPreferences.getId() };
+        String selection = PedidoContrato.PedidoEntrada.COLUNA_ID_PEDIDO + " = ?";
+        String[] selectionArgs = { model.getIdPedido() };
 
 
         long newRowId =  db.delete(
@@ -129,6 +155,7 @@ public class PedidoDAO {
         String[] projection = {
                 PedidoContrato.PedidoEntrada.COLUNA_ID_PEDIDO,
                 PedidoContrato.PedidoEntrada.COLUNA_ID_USUARIO,
+                PedidoContrato.PedidoEntrada.COLUNA_ID_CLIENTE,
                 PedidoContrato.PedidoEntrada.COLUNA_BAIRRO,
                 PedidoContrato.PedidoEntrada.COLUNA_NUMERO,
                 PedidoContrato.PedidoEntrada.COLUNA_ENDERECO,
@@ -159,11 +186,18 @@ public class PedidoDAO {
             do {
                 PedidoModel pedido = new PedidoModel();
 
+
+                System.out.println("aquiasasjiasdijas " + itemPedidoDAO.getLista(cursor.getString(cursor.getColumnIndexOrThrow(PedidoContrato.PedidoEntrada.COLUNA_ID_PEDIDO))).size());
+
+                pedido.setIdPedido(cursor.getString(cursor.getColumnIndexOrThrow(PedidoContrato.PedidoEntrada.COLUNA_ID_PEDIDO)));
                 pedido.setBairro(cursor.getString(cursor.getColumnIndexOrThrow(PedidoContrato.PedidoEntrada.COLUNA_BAIRRO)));
                 pedido.setCep(cursor.getString(cursor.getColumnIndexOrThrow(PedidoContrato.PedidoEntrada.COLUNA_CEP)));
                 pedido.setData(cursor.getLong(cursor.getColumnIndexOrThrow(PedidoContrato.PedidoEntrada.COLUNA_DATA)));
                 pedido.setEndereco(cursor.getString(cursor.getColumnIndexOrThrow(PedidoContrato.PedidoEntrada.COLUNA_ENDERECO)));
                 pedido.setNumero(cursor.getString(cursor.getColumnIndexOrThrow(PedidoContrato.PedidoEntrada.COLUNA_NUMERO)));
+                pedido.setCliente(clienteDAO.getCliente(cursor.getString(cursor.getColumnIndexOrThrow(PedidoContrato.PedidoEntrada.COLUNA_ID_CLIENTE))));
+                pedido.getListaItemsDePedido().addAll(itemPedidoDAO.getLista(cursor.getString(cursor.getColumnIndexOrThrow(PedidoContrato.PedidoEntrada.COLUNA_ID_PEDIDO))));
+
 
                 lista.add(pedido);
             } while (cursor.moveToNext());
@@ -173,5 +207,7 @@ public class PedidoDAO {
         return lista;
 
     }
+
+
 
 }

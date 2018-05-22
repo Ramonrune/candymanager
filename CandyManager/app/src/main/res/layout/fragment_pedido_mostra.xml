@@ -1,21 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:mask="http://schemas.android.com/tools"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorAccent"
-    android:orientation="vertical"
-    tools:context=".pedidos.mostrar.PedidoMostraController">
-
+    android:background="@color/colorAccent">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
 
         <LinearLayout
+            android:id="@+id/mainLinearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="Cliente"
+                    android:textColor="@android:color/background_dark" />
+
+                <LinearLayout
+                    android:id="@+id/produtosLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="65dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/custom_card"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/clienteImageView"
+                        android:layout_width="135dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:src="@drawable/cliente" />
+
+                    <Button
+                        android:id="@+id/clienteButton"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:hint="Selecionar cliente..."
+                        android:inputType="textPersonName"
+                        android:textAlignment="gravity"
+                        android:textColor="@android:color/background_dark" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -25,15 +78,92 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Itens de pedido"
+                    android:textColor="@android:color/background_dark" />
+
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_weight="1"
+                android:text="Data"
+                android:textColor="@android:color/background_dark" />
+
+            <DatePicker
+                android:id="@+id/dataDatePicker"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="7dp"
+
+                android:background="#fff" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/custom_card"
+                android:orientation="vertical"
+
+                android:paddingRight="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="15dp"
-                    android:text="Nome do cliente"
+                    android:text="CEP"
                     android:textColor="@android:color/background_dark" />
 
                 <EditText
-                    android:id="@+id/nomeDoClienteEditText"
+                    android:id="@+id/cepEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/custom_edittext_gray"
+                    android:inputType="phone" />
+
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="15dp"
+                    android:text="Endereço"
+                    android:textColor="@android:color/background_dark" />
+
+                <EditText
+                    android:id="@+id/enderecoEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/custom_edittext_gray"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:textColor="@android:color/background_dark" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="15dp"
+                    android:text="Bairro"
+                    android:textColor="@android:color/background_dark" />
+
+                <EditText
+                    android:id="@+id/bairroEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="5dp"
                     android:background="@drawable/custom_edittext_gray"
@@ -50,79 +180,19 @@
                     android:textColor="@android:color/background_dark" />
 
                 <EditText
-                    android:id="@+id/dataEditText"
+                    android:id="@+id/numeroEditText"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginBottom="15dp"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="5dp"
                     android:background="@drawable/custom_edittext_gray"
                     android:ems="10"
                     android:inputType="textPersonName"
                     android:textColor="@android:color/background_dark" />
-
-            </LinearLayout>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="15dp"
-                android:text="Pedidos"
-                android:textColor="@android:color/background_dark" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/doceTextView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="5dp"
-                    android:textColor="@android:color/background_dark" />
-
-                <TextView
-                    android:id="@+id/totalTextView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="5dp"
-                    android:textColor="@android:color/background_dark" />
-
-            </LinearLayout>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Endereço"
-                android:textColor="@android:color/background_dark"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="5dp"
-            />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/enderecoTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="5dp"
-                    android:background="@color/cardview_light_background"
-                    android:padding="5dp"
-                    android:textColor="@android:color/background_dark" />
-
             </LinearLayout>
 
         </LinearLayout>
-
-
     </ScrollView>
 
-
-</LinearLayout>
+</RelativeLayout>
