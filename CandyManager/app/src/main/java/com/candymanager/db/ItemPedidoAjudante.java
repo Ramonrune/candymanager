@@ -17,7 +17,7 @@ public class ItemPedidoAjudante extends SQLiteOpenHelper {
                     ItemPedidoContrato.ItemPedidoEntrada.COLUNA_QUANTIDADE + " INT," +
                     ItemPedidoContrato.ItemPedidoEntrada.COLUNA_VALOR_TOTAL_GASTO + " FLOAT," +
                     "FOREIGN KEY ("+ ItemPedidoContrato.ItemPedidoEntrada.COLUNA_PRODUTO_ID_PEDIDO +") REFERENCES "+
-                    PedidoContrato.PedidoEntrada.NOME_TABELA+"("+PedidoContrato.PedidoEntrada.COLUNA_ID_PEDIDO+"))";
+                    PedidoContrato.PedidoEntrada.NOME_TABELA+"("+PedidoContrato.PedidoEntrada.COLUNA_ID_PEDIDO+") ON DELETE CASCADE)";
 
 
     private static final String SQL_DELETE_ENTRIES =

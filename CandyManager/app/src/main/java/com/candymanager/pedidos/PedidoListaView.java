@@ -1,22 +1,32 @@
 package com.candymanager.pedidos;
 
+import android.content.Context;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.candymanager.R;
-import com.candymanager.pedidos.recycler.PedidoAdapter;
 import com.candymanager.produtos.ProdutoModel;
 import com.futuremind.recyclerviewfastscroll.FastScroller;
+import com.github.tibolte.agendacalendarview.AgendaCalendarView;
+import com.github.tibolte.agendacalendarview.CalendarPickerController;
+import com.github.tibolte.agendacalendarview.models.BaseCalendarEvent;
+import com.github.tibolte.agendacalendarview.models.CalendarEvent;
+import com.github.tibolte.agendacalendarview.models.DayItem;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
+import java.util.Locale;
 
 public class PedidoListaView {
 
     //private RecyclerView pedidoRecyclerView;
     //private FastScroller scrollerRapidoFastScroller;
     private FloatingActionButton novoPedidoFloatingActionButton;
+    private AgendaCalendarView calendarioAgendaCalendarView;
     //private PedidoAdapter pedidoAdapter;
 
 
@@ -31,7 +41,10 @@ public class PedidoListaView {
         //scrollerRapidoFastScroller.setRecyclerView(pedidoRecyclerView);
 
         novoPedidoFloatingActionButton = (FloatingActionButton) view.findViewById(R.id.novoPedidoFloatingActionButton);
+        calendarioAgendaCalendarView = (AgendaCalendarView) view.findViewById(R.id.agenda_calendar_view);
+
     }
+
 
    /* public RecyclerView getPedidoRecyclerView() {
         return pedidoRecyclerView;
@@ -42,8 +55,10 @@ public class PedidoListaView {
         return novoPedidoFloatingActionButton;
     }
 
-
-    /*
+    public AgendaCalendarView getCalendarioAgendaCalendarView() {
+        return calendarioAgendaCalendarView;
+    }
+/*
     public PedidoAdapter getPedidoAdapter() {
         return pedidoAdapter;
     }

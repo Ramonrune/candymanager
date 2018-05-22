@@ -13,6 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -20,12 +21,14 @@ import android.widget.TextView;
 import com.candymanager.R;
 import com.candymanager.SplashScreen;
 import com.candymanager.cliente.ClienteController;
+import com.candymanager.configuracao.ConfiguracaoController;
 import com.candymanager.db.ProdutoContrato;
 import com.candymanager.home.HomeController;
 import com.candymanager.login.LoginController;
 import com.candymanager.login.LoginSharedPreferences;
 import com.candymanager.pedidos.PedidoController;
 import com.candymanager.produtos.ProdutoController;
+import com.candymanager.social.RedeSocialController;
 
 public class MenuPrincipal extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -62,6 +65,19 @@ public class MenuPrincipal extends AppCompatActivity
         nomeUsuarioTextView.setText(loginSharedPreferences.getNome());
         TextView emailUsuarioTextView = (TextView) header.findViewById(R.id.emailMenu);
         emailUsuarioTextView.setText(loginSharedPreferences.getEmail());
+
+        ImageButton configuracao = (ImageButton) header.findViewById(R.id.configuracaoImageButton);
+        configuracao.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                ConfiguracaoController configuracaoController = new ConfiguracaoController();
+                android.support.v4.app.FragmentManager manager = getSupportFragmentManager();
+                manager.beginTransaction().replace(R.id.relative_layout_fragmento, configuracaoController, configuracaoController.getTag()).commit();
+                DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+                drawer.closeDrawer(GravityCompat.START);
+            }
+        });
 
     }
 
@@ -182,6 +198,11 @@ public class MenuPrincipal extends AppCompatActivity
             PedidoController pedidoController= new PedidoController();
 
             manager.beginTransaction().replace(R.id.relative_layout_fragmento, pedidoController, pedidoController.getTag()).commit();
+        }
+        else if(id == R.id.nav_redes_sociais){
+            RedeSocialController redeSocialController= new RedeSocialController();
+
+            manager.beginTransaction().replace(R.id.relative_layout_fragmento, redeSocialController, redeSocialController.getTag()).commit();
         }
 
 

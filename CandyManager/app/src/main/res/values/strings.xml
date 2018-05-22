@@ -12,6 +12,9 @@
 
     <string name="without_social_media_integration">Você não tem nenhuma rede social integrada ao seu aplicativo.\n\nVá em <b>Menu > Configurações</b> para realizar a integração.</string>
 
-
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="facebook_app_id">333941950430161</string>
+    <string name="fb_login_protocol_scheme">fb333941950430161</string>
 
 </resources>

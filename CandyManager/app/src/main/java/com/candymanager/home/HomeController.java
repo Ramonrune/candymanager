@@ -12,6 +12,7 @@ import com.candymanager.cliente.ClienteController;
 import com.candymanager.menu.MenuPrincipal;
 import com.candymanager.pedidos.PedidoController;
 import com.candymanager.produtos.ProdutoController;
+import com.candymanager.social.RedeSocialController;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -75,6 +76,22 @@ public class HomeController extends Fragment {
 
                 PedidoController pedidoController = new PedidoController();
                 manager.beginTransaction().replace(R.id.relative_layout_fragmento, pedidoController, pedidoController.getTag()).addToBackStack(null).commit();
+
+
+            }
+        });
+
+
+        homeView.getRedeSocialLayout().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ((MenuPrincipal) getActivity())
+                        .setCheckedItem(R.id.nav_redes_sociais);
+
+                android.support.v4.app.FragmentManager manager = getActivity().getSupportFragmentManager();
+
+                RedeSocialController redeSocialController = new RedeSocialController();
+                manager.beginTransaction().replace(R.id.relative_layout_fragmento, redeSocialController, redeSocialController.getTag()).addToBackStack(null).commit();
 
 
             }

@@ -7,22 +7,27 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class PedidoAjudante extends SQLiteOpenHelper {
 
     public static final int DATABASE_VERSION = 1;
-    public static final String DATABASE_NAME = "Pedido.db";
+    public static final String DATABASE_NAME = "pedido.db";
     private static final String SQL_CREATE_ENTRIES =
             "CREATE TABLE " + PedidoContrato.PedidoEntrada.NOME_TABELA + " (" +
                     PedidoContrato.PedidoEntrada.COLUNA_ID_PEDIDO + " CHAR(36) PRIMARY KEY," +
+                    PedidoContrato.PedidoEntrada.COLUNA_ID_CLIENTE + " CHAR(36) NOT NULL," +
                     PedidoContrato.PedidoEntrada.COLUNA_DATA + " LONG NOT NULL," +
                     PedidoContrato.PedidoEntrada.COLUNA_ENDERECO + " TEXT," +
-                    PedidoContrato.PedidoEntrada.COLUNA_CEP + " TEXT " + "," +
+                    PedidoContrato.PedidoEntrada.COLUNA_CEP + " CHAR(8) " + "," +
                     PedidoContrato.PedidoEntrada.COLUNA_NUMERO + " TEXT " + "," +
                     PedidoContrato.PedidoEntrada.COLUNA_BAIRRO + " TEXT " + "," +
                     PedidoContrato.PedidoEntrada.COLUNA_ID_USUARIO + " CHAR(36) NOT NULL " + "," +
                     "FOREIGN KEY ("+ PedidoContrato.PedidoEntrada.COLUNA_ID_USUARIO +") REFERENCES "+
-                    UsuarioContrato.UsuarioEntrada.NOME_TABELA+"("+UsuarioContrato.UsuarioEntrada.COLUNA_ID_USUARIO+"))";
+                    UsuarioContrato.UsuarioEntrada.NOME_TABELA+"("+UsuarioContrato.UsuarioEntrada.COLUNA_ID_USUARIO+")," +
+                    "FOREIGN KEY ("+ PedidoContrato.PedidoEntrada.COLUNA_ID_CLIENTE +") REFERENCES "+
+                    ClienteContrato.ClienteEntrada.NOME_TABELA+"("+ClienteContrato.ClienteEntrada.COLUNA_ID_CLIENTE+")" +
+
+                    ")";
 
 
     private static final String SQL_DELETE_ENTRIES =
-            "DROP TABLE IF EXISTS " + UsuarioContrato.UsuarioEntrada.NOME_TABELA;
+            "DROP TABLE IF EXISTS " + PedidoContrato.PedidoEntrada.NOME_TABELA;
 
     public PedidoAjudante(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);

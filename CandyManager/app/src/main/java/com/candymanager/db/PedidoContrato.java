@@ -10,6 +10,8 @@ public class PedidoContrato {
 
         public static String COLUNA_ID_PEDIDO = "id_pedido";
 
+        public static String COLUNA_ID_CLIENTE = "id_cliente";
+
         public static String COLUNA_DATA = "data";
 
         public static String COLUNA_CEP = "cep";
