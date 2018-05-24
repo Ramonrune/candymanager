@@ -20,9 +20,9 @@ public class RedeSocialPublicaView {
 
         imageDoceImageButton = (ImageButton) view.findViewById(R.id.imagePreviewProdutoImageButton);
         legendaEditText = (EditText) view.findViewById(R.id.legendaEditText);
-        publicarFacebookSwitch = (Switch) view.findViewById(R.id.publicarFacebookSwitch);
-        publicarInstagramSwitch = (Switch) view.findViewById(R.id.publicarInstagramSwitch);
-        publicarTwitterSwitch = (Switch) view.findViewById(R.id.publicarTwitterSwitch);
+       // publicarFacebookSwitch = (Switch) view.findViewById(R.id.publicarFacebookSwitch);
+       // publicarInstagramSwitch = (Switch) view.findViewById(R.id.publicarInstagramSwitch);
+       // publicarTwitterSwitch = (Switch) view.findViewById(R.id.publicarTwitterSwitch);
 
     }
 

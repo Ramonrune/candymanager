@@ -153,6 +153,7 @@ public class RedeSocialDAO {
 
                     redeSocialModel.setComments(jsonObject2.isNull("total_count") ? -1 : jsonObject2.getInt("total_count"));
 
+                    redeSocialModel.setFacebookPost(true);
 
                     list.add(redeSocialModel);
 
@@ -237,6 +238,8 @@ public class RedeSocialDAO {
 
                     jsonObject1 = jsonItem.getJSONObject("comments");
                     redeSocialModel.setComments(jsonObject1.isNull("count") ? -1 : jsonObject1.getInt("count"));
+
+                    redeSocialModel.setInstagramPost(true);
 
                     list.add(redeSocialModel);
 

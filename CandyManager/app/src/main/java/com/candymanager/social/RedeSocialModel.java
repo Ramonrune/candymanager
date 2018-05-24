@@ -13,7 +13,25 @@ public class RedeSocialModel {
     private String createdTime;
     private String description;
     private int type;
+    private boolean facebookPost = false;
+    private boolean instagramPost = false;
 
+
+    public void setFacebookPost(boolean facebookPost){
+        this.facebookPost = facebookPost;
+    }
+
+    public boolean isFacebookPost() {
+        return facebookPost;
+    }
+
+    public boolean isInstagramPost() {
+        return instagramPost;
+    }
+
+    public void setInstagramPost(boolean instagramPost) {
+        this.instagramPost = instagramPost;
+    }
 
     public String getId() {
         return id;
