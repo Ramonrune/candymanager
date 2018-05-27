@@ -1,6 +1,7 @@
 package com.candymanager.configuracao;
 
 import android.view.View;
+import android.widget.Button;
 import android.widget.Switch;
 
 import com.candymanager.R;
@@ -15,6 +16,7 @@ public class ConfiguracaoView {
     private Switch instagamSwitch;
     private Switch twitterSwitch;
     private Switch pedidosSwitch;
+    private Button logoutButton;
 
 
     public ConfiguracaoView(View view) {
@@ -22,6 +24,8 @@ public class ConfiguracaoView {
         facebookSwitch  = (Switch) view.findViewById(R.id.facebookSwitch);
         twitterSwitch = (Switch) view.findViewById(R.id.twitterSwitchh);
         pedidosSwitch = (Switch) view.findViewById(R.id.pedidosSwitch);
+        logoutButton = (Button) view.findViewById(R.id.logoutButton);
+
 
     }
 
@@ -51,5 +55,9 @@ public class ConfiguracaoView {
 
     public Switch getPedidosSwitch() {
         return pedidosSwitch;
+    }
+
+    public Button getLogoutButton() {
+        return logoutButton;
     }
 }

@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.candymanager.R;
 import com.candymanager.configuracao.NotificacaoPedidosSharedPreference;
+import com.candymanager.login.LoginSharedPreferences;
 import com.candymanager.menu.MenuPrincipal;
 import com.candymanager.pedidos.PedidoController;
 import com.candymanager.pedidos.PedidoDAO;
@@ -30,6 +31,7 @@ public class BackgroundService extends Service {
     public static Runnable runnable = null;
     private PedidoDAO pedidoDAO;
     private NotificacaoPedidosSharedPreference notificacaoPedidosSharedPreference;
+    private LoginSharedPreferences loginSharedPreferences;
 
 
     @Override
@@ -41,13 +43,13 @@ public class BackgroundService extends Service {
     public void onCreate() {
         pedidoDAO = new PedidoDAO(this);
         notificacaoPedidosSharedPreference = new NotificacaoPedidosSharedPreference(this);
-
+        loginSharedPreferences = new LoginSharedPreferences(this);
         handler = new Handler();
         runnable = new Runnable() {
             @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
             public void run() {
 
-                if (notificacaoPedidosSharedPreference.isEnabled()) {
+                if (notificacaoPedidosSharedPreference.isEnabled() && loginSharedPreferences.getEmail() != null) {
                     List<PedidoModel> list = pedidoDAO.getListaDiaDeHoje();
                     if (list.size() > 0) {
                         Uri soundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
@@ -75,7 +77,7 @@ public class BackgroundService extends Service {
                 handler.postDelayed(runnable, 28800000);
             }
         };
-
+//28800000
         handler.postDelayed(runnable, 10000);
     }
 
