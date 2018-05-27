@@ -65,6 +65,7 @@ public class RedeSocialAdapter extends BaseAdapter {
         TextView curtidasTextView = (TextView) row.findViewById(R.id.curtidasTextView);
         TextView comentariosTextView = (TextView) row.findViewById(R.id.comentariosTextView);
         ImageView likesImageView = (ImageView) row.findViewById(R.id.likeImageView);
+        ImageView commentImageView = (ImageView) row.findViewById(R.id.commentImageView);
 
         new DownloadImageTask((ImageView) row.findViewById(R.id.fotoImageView))
                 .execute(redeSocialModelArrayList.get(i).getFullPicture());
@@ -81,6 +82,9 @@ public class RedeSocialAdapter extends BaseAdapter {
             likesImageView.setImageResource(R.drawable.heart);
         }
 
+        if(redeSocialModelArrayList.get(i).getType() == 3){
+            commentImageView.setImageResource(R.drawable.retweet);
+        }
         return row;
     }
 

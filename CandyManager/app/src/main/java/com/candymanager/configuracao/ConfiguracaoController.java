@@ -42,6 +42,7 @@ public class ConfiguracaoController extends Fragment implements AuthenticatorLis
     private CallbackManager callbackManager;
     private ConfiguracaoView configuracaoView;
     private TwitterApp twitterApp;
+    private NotificacaoPedidosSharedPreference notificacaoPedidosSharedPreference;
 
     public ConfiguracaoController() {
     }
@@ -172,6 +173,22 @@ public class ConfiguracaoController extends Fragment implements AuthenticatorLis
                 }
             }
         });
+
+
+        configuracaoView.getPedidosSwitch().setChecked(notificacaoPedidosSharedPreference.isEnabled());
+
+        configuracaoView.getPedidosSwitch().setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(b){
+                    notificacaoPedidosSharedPreference.enable();
+                }
+                else{
+                    notificacaoPedidosSharedPreference.disable();
+                }
+
+            }
+        });
         return view;
     }
 
@@ -180,6 +197,7 @@ public class ConfiguracaoController extends Fragment implements AuthenticatorLis
         configuracaoView = new ConfiguracaoView(view);
         twitterApp = new TwitterApp(getContext(), "bMeIFl9LZ17tgJkSDqIrEL3xD", "URisH2K8zt6FfZF6DHD31zejZiWrAgqoy45phuydmTL1rQ6fKp");
         twitterApp.setListener(ConfiguracaoController.this);
+        notificacaoPedidosSharedPreference = new NotificacaoPedidosSharedPreference(getContext());
     }
 
 

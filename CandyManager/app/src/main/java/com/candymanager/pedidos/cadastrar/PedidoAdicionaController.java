@@ -441,6 +441,7 @@ public class PedidoAdicionaController extends Fragment {
                 if (sucesso) {
 
                     if (insercao) {
+
                         Mensagem.mostrarDialogoMudarFragmento(pedidoController, getActivity(), "Sucesso", "Cadastro do pedido e dos itens do pedido realizado com sucesso!");
                     } else {
                         Mensagem.mostrarDialogoMudarFragmento(pedidoController, getActivity(), "Erro", "Ocorreu algum erro na inserção, por favor, tente novamente ou entre em contato com o suporte!");

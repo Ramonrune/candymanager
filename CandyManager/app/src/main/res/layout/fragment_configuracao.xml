@@ -31,6 +31,15 @@
                 android:orientation="vertical">
 
                 <Switch
+                    android:id="@+id/pedidosSwitch"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:drawableLeft="?android:attr/alertDialogIcon"
+
+                    android:text="  Alertar pedidos próximos" />
+
+                <Switch
                     android:id="@+id/facebookSwitch"
                     android:layout_width="match_parent"
                     android:layout_marginTop="16dp"
