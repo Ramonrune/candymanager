@@ -12,17 +12,15 @@ public class RedeSocialPublicaView {
 
     private ImageButton imageDoceImageButton;
     private EditText legendaEditText;
-    private Switch publicarFacebookSwitch;
-    private Switch publicarInstagramSwitch;
-    private Switch publicarTwitterSwitch;
+
 
     public RedeSocialPublicaView(View view){
 
         imageDoceImageButton = (ImageButton) view.findViewById(R.id.imagePreviewProdutoImageButton);
         legendaEditText = (EditText) view.findViewById(R.id.legendaEditText);
-        publicarFacebookSwitch = (Switch) view.findViewById(R.id.publicarFacebookSwitch);
-        publicarInstagramSwitch = (Switch) view.findViewById(R.id.publicarInstagramSwitch);
-        publicarTwitterSwitch = (Switch) view.findViewById(R.id.publicarTwitterSwitch);
+       // publicarFacebookSwitch = (Switch) view.findViewById(R.id.publicarFacebookSwitch);
+       // publicarInstagramSwitch = (Switch) view.findViewById(R.id.publicarInstagramSwitch);
+       // publicarTwitterSwitch = (Switch) view.findViewById(R.id.publicarTwitterSwitch);
 
     }
 
@@ -34,15 +32,5 @@ public class RedeSocialPublicaView {
         return legendaEditText;
     }
 
-    public Switch getPublicarFacebookSwitch() {
-        return publicarFacebookSwitch;
-    }
 
-    public Switch getPublicarInstagramSwitch() {
-        return publicarInstagramSwitch;
-    }
-
-    public Switch getPublicarTwitterSwitch() {
-        return publicarTwitterSwitch;
-    }
 }

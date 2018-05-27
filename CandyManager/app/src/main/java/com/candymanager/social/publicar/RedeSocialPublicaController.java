@@ -70,10 +70,6 @@ public class RedeSocialPublicaController extends android.support.v4.app.Fragment
         view = inflater.inflate(R.layout.fragment_rede_social_publicar, container, false);
         redeSocialPublicaView = new RedeSocialPublicaView(view);
 
-        AccessToken accessToken = AccessToken.getCurrentAccessToken();
-        if(accessToken != null){
-            redeSocialPublicaView.getPublicarFacebookSwitch().setChecked(true);
-        }
 
     }
 
@@ -101,7 +97,7 @@ public class RedeSocialPublicaController extends android.support.v4.app.Fragment
             Bitmap bmp = null;
             try {
                 bmp = getBitmapFromUri(selectedImage);
-                bmp = Bitmap.createScaledBitmap(bmp, 300, 300, true);
+                bmp = Bitmap.createScaledBitmap(bmp, 600, 600, true);
                 bmp = BitmapUtil.getCroppedBitmap(bmp);
                 map = bmp;
 
