@@ -49,7 +49,7 @@
                     android:text="  Instagram" />
 
                 <Switch
-                    android:id="@+id/twitterSwitch4"
+                    android:id="@+id/twitterSwitchh"
                     android:drawableLeft="@drawable/twitter_mini"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

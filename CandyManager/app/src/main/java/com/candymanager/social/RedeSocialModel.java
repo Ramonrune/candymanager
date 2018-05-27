@@ -1,7 +1,9 @@
 package com.candymanager.social;
 
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 public class RedeSocialModel {
 
@@ -13,25 +15,10 @@ public class RedeSocialModel {
     private String createdTime;
     private String description;
     private int type;
-    private boolean facebookPost = false;
-    private boolean instagramPost = false;
 
 
-    public void setFacebookPost(boolean facebookPost){
-        this.facebookPost = facebookPost;
-    }
 
-    public boolean isFacebookPost() {
-        return facebookPost;
-    }
 
-    public boolean isInstagramPost() {
-        return instagramPost;
-    }
-
-    public void setInstagramPost(boolean instagramPost) {
-        this.instagramPost = instagramPost;
-    }
 
     public String getId() {
         return id;
@@ -100,7 +87,23 @@ public class RedeSocialModel {
 
 
             }
+
+            if(type == 3){
+                try {
+                    DateFormat outputFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+                    DateFormat inputFormat = new SimpleDateFormat("EEE MMM dd HH:mm:ss ZZZZZ yyyy", Locale.ENGLISH);
+                    inputFormat.setLenient(true);
+
+                    Date date = inputFormat.parse(createdTime);
+                    createdTime = outputFormat.format(date);
+
+                }catch(Exception e){
+
+                }
+
+            }
         }
+
 
         this.createdTime = createdTime;
     }

@@ -75,9 +75,9 @@ public class RedeSocialAdapter extends BaseAdapter {
         curtidasTextView.setText(String.valueOf(redeSocialModelArrayList.get(i).getLikes()));
         comentariosTextView.setText(String.valueOf(redeSocialModelArrayList.get(i).getComments()));
 
-        if(redeSocialModelArrayList.get(i).isFacebookPost()) {
+        if(redeSocialModelArrayList.get(i).getType() == 1) {
             likesImageView.setImageResource(R.drawable.like);
-        }else if (redeSocialModelArrayList.get(i).isInstagramPost()){
+        }else{
             likesImageView.setImageResource(R.drawable.heart);
         }
 

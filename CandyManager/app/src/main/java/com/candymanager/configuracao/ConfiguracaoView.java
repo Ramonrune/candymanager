@@ -19,6 +19,7 @@ public class ConfiguracaoView {
     public ConfiguracaoView(View view) {
         instagamSwitch  = (Switch) view.findViewById(R.id.instagramSwitch);
         facebookSwitch  = (Switch) view.findViewById(R.id.facebookSwitch);
+        twitterSwitch = (Switch) view.findViewById(R.id.twitterSwitchh);
     }
 
     public Switch getFacebookSwitch() {

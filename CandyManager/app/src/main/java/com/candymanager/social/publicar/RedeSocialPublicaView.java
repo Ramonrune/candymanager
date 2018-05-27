@@ -12,9 +12,7 @@ public class RedeSocialPublicaView {
 
     private ImageButton imageDoceImageButton;
     private EditText legendaEditText;
-    private Switch publicarFacebookSwitch;
-    private Switch publicarInstagramSwitch;
-    private Switch publicarTwitterSwitch;
+
 
     public RedeSocialPublicaView(View view){
 
@@ -34,15 +32,5 @@ public class RedeSocialPublicaView {
         return legendaEditText;
     }
 
-    public Switch getPublicarFacebookSwitch() {
-        return publicarFacebookSwitch;
-    }
 
-    public Switch getPublicarInstagramSwitch() {
-        return publicarInstagramSwitch;
-    }
-
-    public Switch getPublicarTwitterSwitch() {
-        return publicarTwitterSwitch;
-    }
 }

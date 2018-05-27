@@ -9,6 +9,8 @@ import android.widget.ListView;
 
 import com.candymanager.R;
 import com.candymanager.configuracao.InstagramSharedPreferences;
+import com.candymanager.configuracao.TwitterApp;
+import com.candymanager.configuracao.TwitterSessao;
 import com.candymanager.social.adapter.RedeSocialAdapter;
 import com.candymanager.social.publicar.RedeSocialPublicaView;
 import com.facebook.AccessToken;
@@ -31,6 +33,10 @@ import java.util.Comparator;
 import java.util.List;
 
 import bolts.Task;
+import twitter4j.ResponseList;
+import twitter4j.Status;
+import twitter4j.Twitter;
+import twitter4j.TwitterException;
 
 public class RedeSocialDAO {
 
@@ -41,13 +47,16 @@ public class RedeSocialDAO {
     private static String URL_FACEBOOK;
     private static String URL_INSTAGRAM;
     private AsyncTaskSharedPreferences asyncTaskSharedPreferences;
+    private TwitterApp twitterApp;
+    private TwitterSessao twitterSessao;
 
     public RedeSocialDAO(Context context, RedeSocialListaPublicacaoView redeSocialListaPublicacaoView) {
         this.context = context;
         this.redeSocialListaPublicacaoView = redeSocialListaPublicacaoView;
         this.instagramSharedPreferences = new InstagramSharedPreferences(context);
         this.asyncTaskSharedPreferences = new AsyncTaskSharedPreferences(context, getQuantidadeRedesSociaisIntegradas());
-
+        this.twitterApp = new TwitterApp(context, "bMeIFl9LZ17tgJkSDqIrEL3xD", "URisH2K8zt6FfZF6DHD31zejZiWrAgqoy45phuydmTL1rQ6fKp");
+        this.twitterSessao = new TwitterSessao(context);
         if (AccessToken.getCurrentAccessToken() != null) {
             URL_FACEBOOK = "https://graph.facebook.com/v3.0/me/feed?fields=comments.limit(0).summary(true),likes.limit(0).summary(true),description,picture,full_picture,created_time&access_token=" + AccessToken.getCurrentAccessToken().getToken();
         }
@@ -62,6 +71,10 @@ public class RedeSocialDAO {
         redeSocialListaPublicacaoView.getProgressoProgressBar().setVisibility(View.VISIBLE);
         redeSocialListaPublicacaoView.getListaPublicacoesListView().setVisibility(View.INVISIBLE);
 
+        if(isTwitterIntegrated()){
+            new TwitterDAO().execute("");
+        }
+
         if (isFacebookIntegrated()) {
             new FacebookDAO().execute("");
         }
@@ -74,6 +87,13 @@ public class RedeSocialDAO {
 
     }
 
+    private boolean isTwitterIntegrated() {
+        if (twitterApp.hasAccessToken()) {
+            return true;
+        }
+
+        return false;
+    }
 
     private boolean isFacebookIntegrated() {
         if (AccessToken.getCurrentAccessToken() != null) {
@@ -116,6 +136,50 @@ public class RedeSocialDAO {
         return contador;
     }
 
+    private class TwitterDAO{
+
+        public void execute(String task){
+
+            ResponseList<Status> listTwitter = null;
+            try {
+                listTwitter = twitterApp.getmTwitter().getUserTimeline(twitterSessao.getUsername());
+            } catch (TwitterException e) {
+                e.printStackTrace();
+            }
+            for (Status each : listTwitter) {
+
+
+                RedeSocialModel redeSocialModel = new RedeSocialModel();
+                redeSocialModel.setType(3);
+
+                if(each.getMediaEntities().length > 0){
+
+
+                    redeSocialModel.setPicture(each.getMediaEntities()[0].getMediaURLHttps());
+                    redeSocialModel.setFullPicture(each.getMediaEntities()[0].getMediaURLHttps());
+                }
+                else{
+                    redeSocialModel.setPicture("https://pbs.twimg.com/profile_images/875135141135302656/eiM2Wz66_400x400.jpg");
+                    redeSocialModel.setFullPicture("https://pbs.twimg.com/profile_images/875135141135302656/eiM2Wz66_400x400.jpg");
+                }
+
+                redeSocialModel.setLikes(each.getFavoriteCount());
+                redeSocialModel.setComments(each.getRetweetCount());
+                redeSocialModel.setDescription(each.getText());
+
+
+                System.out.println(each.getCreatedAt().toString());
+                redeSocialModel.setCreatedTime(each.getCreatedAt().toString());
+                list.add(redeSocialModel);
+
+                System.out.println("Sent by: @" + each.getUser().getScreenName()
+                        + " - " + each.getUser().getName() + "\n" + each.getText()
+                        + "\n");
+            }
+
+        }
+    }
+
 
     private class FacebookDAO extends AsyncTask<String, Void, String> {
         @Override
@@ -153,7 +217,6 @@ public class RedeSocialDAO {
 
                     redeSocialModel.setComments(jsonObject2.isNull("total_count") ? -1 : jsonObject2.getInt("total_count"));
 
-                    redeSocialModel.setFacebookPost(true);
 
                     list.add(redeSocialModel);
 
@@ -166,10 +229,10 @@ public class RedeSocialDAO {
 
                     Collections.sort(list, new Comparator<RedeSocialModel>() {
                         @Override
-                        public int compare(RedeSocialModel redeSocialModel, RedeSocialModel t1) {
+                        public int compare(RedeSocialModel redeSocialModel, RedeSocialModel redeSocialModel2) {
                             DateFormat f = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
                             try {
-                                return f.parse(redeSocialModel.getCreatedTime()).compareTo(f.parse(t1.getCreatedTime()));
+                                return f.parse(redeSocialModel2.getCreatedTime()).compareTo(f.parse(redeSocialModel.getCreatedTime()));
                             } catch (ParseException e) {
                                 e.printStackTrace();
                             }
@@ -239,7 +302,6 @@ public class RedeSocialDAO {
                     jsonObject1 = jsonItem.getJSONObject("comments");
                     redeSocialModel.setComments(jsonObject1.isNull("count") ? -1 : jsonObject1.getInt("count"));
 
-                    redeSocialModel.setInstagramPost(true);
 
                     list.add(redeSocialModel);
 
