@@ -41,7 +41,6 @@ public class BackgroundService extends Service {
     public void onCreate() {
         pedidoDAO = new PedidoDAO(this);
         notificacaoPedidosSharedPreference = new NotificacaoPedidosSharedPreference(this);
-        Toast.makeText(this, "Service created!", Toast.LENGTH_LONG).show();
 
         handler = new Handler();
         runnable = new Runnable() {
@@ -84,11 +83,9 @@ public class BackgroundService extends Service {
     public void onDestroy() {
         /* IF YOU WANT THIS SERVICE KILLED WITH THE APP THEN UNCOMMENT THE FOLLOWING LINE */
         //handler.removeCallbacks(runnable);
-        Toast.makeText(this, "Service stopped", Toast.LENGTH_LONG).show();
     }
 
     @Override
     public void onStart(Intent intent, int startid) {
-        Toast.makeText(this, "Service started by user.", Toast.LENGTH_LONG).show();
     }
 }
