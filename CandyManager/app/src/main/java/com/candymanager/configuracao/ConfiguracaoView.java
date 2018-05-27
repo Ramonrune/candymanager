@@ -14,12 +14,15 @@ public class ConfiguracaoView {
     private Switch facebookSwitch;
     private Switch instagamSwitch;
     private Switch twitterSwitch;
+    private Switch pedidosSwitch;
 
 
     public ConfiguracaoView(View view) {
         instagamSwitch  = (Switch) view.findViewById(R.id.instagramSwitch);
         facebookSwitch  = (Switch) view.findViewById(R.id.facebookSwitch);
         twitterSwitch = (Switch) view.findViewById(R.id.twitterSwitchh);
+        pedidosSwitch = (Switch) view.findViewById(R.id.pedidosSwitch);
+
     }
 
     public Switch getFacebookSwitch() {
@@ -44,5 +47,9 @@ public class ConfiguracaoView {
 
     public void setTwitterSwitch(Switch twitterSwitch) {
         this.twitterSwitch = twitterSwitch;
+    }
+
+    public Switch getPedidosSwitch() {
+        return pedidosSwitch;
     }
 }
