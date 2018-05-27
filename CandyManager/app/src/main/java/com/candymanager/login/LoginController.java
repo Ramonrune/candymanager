@@ -89,8 +89,6 @@ public class LoginController extends AppCompatActivity {
     }
 
 
-    public void fazerLogin() {
 
-    }
 
 }

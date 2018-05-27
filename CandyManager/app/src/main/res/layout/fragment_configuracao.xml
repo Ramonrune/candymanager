@@ -11,7 +11,8 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
             android:orientation="vertical"
             android:padding="32dp">
 
@@ -42,30 +43,41 @@
                 <Switch
                     android:id="@+id/facebookSwitch"
                     android:layout_width="match_parent"
-                    android:layout_marginTop="16dp"
-                    android:drawableLeft="@drawable/facebook_mini"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="16dp"
+                    android:layout_marginTop="16dp"
+                    android:drawableLeft="@drawable/facebook_mini"
 
                     android:text="  Facebook" />
 
                 <Switch
                     android:id="@+id/instagramSwitch"
                     android:layout_width="match_parent"
-                    android:drawableLeft="@drawable/instagram_mini"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="16dp"
+                    android:drawableLeft="@drawable/instagram_mini"
                     android:text="  Instagram" />
 
                 <Switch
                     android:id="@+id/twitterSwitchh"
-                    android:drawableLeft="@drawable/twitter_mini"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="16dp"
+                    android:drawableLeft="@drawable/twitter_mini"
                     android:text="  Twitter" />
 
             </LinearLayout>
+
+            <Button
+                android:id="@+id/logoutButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="32dp"
+                android:background="@drawable/custom_button"
+                android:text="Logout"
+                android:textColor="#fff" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

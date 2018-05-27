@@ -11,6 +11,8 @@ import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import com.candymanager.login.LoginController;
+import com.candymanager.login.LoginSharedPreferences;
 import com.candymanager.menu.MenuPrincipal;
 import com.candymanager.util.Internet;
 import com.candymanager.util.Mensagem;
@@ -187,6 +189,20 @@ public class ConfiguracaoController extends Fragment implements AuthenticatorLis
                     notificacaoPedidosSharedPreference.disable();
                 }
 
+            }
+        });
+
+        configuracaoView.getLogoutButton().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), LoginController.class);
+
+                startActivity(intent);
+                LoginSharedPreferences loginSharedPreferences = new LoginSharedPreferences(getContext());
+                loginSharedPreferences.setUsuarioLogado(null, null, null);
+
+
+                getActivity().finish();
             }
         });
         return view;
