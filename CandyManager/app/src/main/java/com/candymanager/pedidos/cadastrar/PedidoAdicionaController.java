@@ -196,6 +196,7 @@ public class PedidoAdicionaController extends Fragment {
 
     private void inicializaRecursos(LayoutInflater inflater, ViewGroup container) {
         view = inflater.inflate(R.layout.fragment_pedido_adiciona, container, false);
+
         pedidoAdicionaView = new PedidoAdicionaView(view);
         pedidoDAO = new PedidoDAO(view.getContext());
         produtoDAO = new ProdutoDAO(view.getContext());
@@ -266,6 +267,7 @@ public class PedidoAdicionaController extends Fragment {
                 quantidadeItemsPedido--;
                 pedidoAdicionaView.getListaPedidos().remove(item);
                 pedidoAdicionaView.getMainLinearLayout().removeView(newLayout);
+
                 for (int i = 0; i < pedidoAdicionaView.getListaPedidos().size(); i++) {
                     pedidoAdicionaView.getListaPedidos().get(i).getNumeroItemPedido().setText((i + 1) + "º item de pedido");
                     //pedidoAdicionaView.getListaPedidos().get(i).getNumeroItemPedido().setText(i + 1);
@@ -449,8 +451,8 @@ public class PedidoAdicionaController extends Fragment {
 
                 }
 
-
                 return true;
+
             default:
                 break;
         }

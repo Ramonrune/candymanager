@@ -45,6 +45,7 @@ public class PedidoMostraController extends Fragment {
         ((MenuPrincipal) getActivity())
                 .setActionBarTitle("Pedido");
         inicializaRecursos(inflater, container);
+
         pedidoMostraView.getClienteImageView().setImageBitmap(BitmapUtil.getImage(pedidoModel.getCliente().getImagem()));
         Date date = new Date(pedidoModel.getData());
         pedidoMostraView.getDataDatePicker().updateDate((date.getYear() + 1900), date.getMonth(), date.getDate());
@@ -108,4 +109,5 @@ public class PedidoMostraController extends Fragment {
     public void setPedidoModel(PedidoModel pedidoModel) {
         this.pedidoModel = pedidoModel;
     }
+
 }

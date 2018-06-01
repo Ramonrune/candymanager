@@ -43,7 +43,6 @@ public class PedidoMostraView {
 
         clienteImageView = (ImageView) view.findViewById(R.id.clienteImageView);
 
-
         cepEditText = (EditText) view.findViewById(R.id.cepEditText);
         enderecoEditText = (EditText) view.findViewById(R.id.enderecoEditText);
         bairroEditText = (EditText) view.findViewById(R.id.bairroEditText);
