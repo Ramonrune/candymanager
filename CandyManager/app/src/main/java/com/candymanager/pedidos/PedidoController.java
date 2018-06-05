@@ -14,13 +14,10 @@ import android.view.ViewGroup;
 
 import com.candymanager.R;
 import com.candymanager.menu.MenuPrincipal;
+import com.candymanager.pedidos.alterar.PedidoAlteraController;
+import com.candymanager.pedidos.alterar.PedidoAlteraView;
 import com.candymanager.pedidos.cadastrar.PedidoAdicionaController;
 import com.candymanager.pedidos.mostrar.PedidoMostraController;
-import com.candymanager.produtos.ProdutoController;
-import com.candymanager.produtos.alterar.ProdutoAlteraController;
-import com.candymanager.produtos.cadastrar.ProdutoAdicionaController;
-import com.candymanager.produtos.mostrar.ProdutoMostraController;
-import com.candymanager.produtos.recycler.ItemClickListener;
 import com.candymanager.util.Mensagem;
 import com.candymanager.util.Validation;
 import com.github.tibolte.agendacalendarview.CalendarPickerController;
@@ -65,9 +62,7 @@ public class PedidoController extends Fragment {
         pedidoListaView.getNovoPedidooFloatingActionButton().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                System.out.println("TESTEEEE ");
-                Log.d("testeee", "testeeeeee");
+                //AQUI ADICIONA NOVO PEDIDO
                 PedidoAdicionaController pedidoAdicionaController = new PedidoAdicionaController();
                 android.support.v4.app.FragmentManager manager = getActivity().getSupportFragmentManager();
 
@@ -109,6 +104,7 @@ public class PedidoController extends Fragment {
 
 
                                     if(posicao == 0){
+                                        //Mostra
                                         PedidoMostraController pedidoMostraController = new PedidoMostraController();
                                         pedidoMostraController.setPedidoModel(model);
 
@@ -116,14 +112,16 @@ public class PedidoController extends Fragment {
                                         manager.beginTransaction().replace(R.id.relative_layout_fragmento, pedidoMostraController, pedidoMostraController.getTag()).addToBackStack(null).commit();
                                     }
                                     else if(posicao == 1){
-                                        //ProdutoAlteraController produtoController = new ProdutoAlteraController();
-                                        //produtoController.setProdutoModel(model);
+                                        //Altera
+                                        PedidoAlteraController pedidoAlteraController = new PedidoAlteraController();
+                                        pedidoAlteraController.setPedidoModel(model);
 
-                                        //android.support.v4.app.FragmentManager manager = getActivity().getSupportFragmentManager();
-                                        //manager.beginTransaction().replace(R.id.relative_layout_fragmento, produtoController, produtoController.getTag()).addToBackStack(null).commit();
+                                        android.support.v4.app.FragmentManager manager = getActivity().getSupportFragmentManager();
+                                        manager.beginTransaction().replace(R.id.relative_layout_fragmento, pedidoAlteraController, pedidoAlteraController.getTag()).addToBackStack(null).commit();
 
                                     }
                                     else if(posicao == 2){
+                                        //Exclui
                                         final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                                         builder.setTitle("Excluir");
                                         builder.setMessage("Deseja realmente excluir o evento da entrega para " + model.getCliente() + " ?")

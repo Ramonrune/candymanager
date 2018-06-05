@@ -48,7 +48,7 @@
 
 
                 <ImageView
-                    android:id="@+id/imageView4"
+                    android:id="@+id/likeImageView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -63,7 +63,7 @@
                     android:text="Likes" />
 
                 <ImageView
-                    android:id="@+id/imageView5"
+                    android:id="@+id/commentImageView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"

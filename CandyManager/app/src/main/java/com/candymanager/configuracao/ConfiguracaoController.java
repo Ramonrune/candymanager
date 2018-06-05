@@ -11,6 +11,8 @@ import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import com.candymanager.login.LoginController;
+import com.candymanager.login.LoginSharedPreferences;
 import com.candymanager.menu.MenuPrincipal;
 import com.candymanager.util.Internet;
 import com.candymanager.util.Mensagem;
@@ -27,16 +29,22 @@ import com.facebook.login.widget.LoginButton;
 
 import java.util.Arrays;
 
+import twitter4j.ResponseList;
+import twitter4j.Status;
+import twitter4j.TwitterException;
+
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ConfiguracaoController extends Fragment implements AuthenticatorListener {
+public class ConfiguracaoController extends Fragment implements AuthenticatorListener, TwDialogListener {
 
     private JanelaAutenticacaoInstagram janelaAutenticacaoInstagram;
 
     private View view;
     private CallbackManager callbackManager;
     private ConfiguracaoView configuracaoView;
+    private TwitterApp twitterApp;
+    private NotificacaoPedidosSharedPreference notificacaoPedidosSharedPreference;
 
     public ConfiguracaoController() {
     }
@@ -107,6 +115,9 @@ public class ConfiguracaoController extends Fragment implements AuthenticatorLis
                     configuracaoView.getInstagamSwitch().setChecked(false);
                 }
 
+
+
+
             }
         });
 
@@ -138,12 +149,71 @@ public class ConfiguracaoController extends Fragment implements AuthenticatorLis
         });
 
 
+
+        if(!twitterApp.hasAccessToken()){
+            configuracaoView.getTwitterSwitch().setChecked(false);
+        }
+        else{
+            configuracaoView.getTwitterSwitch().setChecked(true);
+        }
+
+        configuracaoView.getTwitterSwitch().setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (Internet.possuiConexaoComRede(getActivity())) {
+
+                    if (b) {
+                        twitterApp.authorize();
+                    } else {
+                        twitterApp.resetAccessToken(getContext());
+                        twitterApp.logoutTwitter();
+                    }
+                }
+                else {
+                    Mensagem.mostrarDialogoFragment(getActivity(), "Internet", "Você precisa de conexão com a internet para se integrar ao Facebook!");
+                    configuracaoView.getFacebookSwitch().setChecked(false);
+                }
+            }
+        });
+
+
+        configuracaoView.getPedidosSwitch().setChecked(notificacaoPedidosSharedPreference.isEnabled());
+
+        configuracaoView.getPedidosSwitch().setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(b){
+                    notificacaoPedidosSharedPreference.enable();
+                }
+                else{
+                    notificacaoPedidosSharedPreference.disable();
+                }
+
+            }
+        });
+
+        configuracaoView.getLogoutButton().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), LoginController.class);
+
+                startActivity(intent);
+                LoginSharedPreferences loginSharedPreferences = new LoginSharedPreferences(getContext());
+                loginSharedPreferences.setUsuarioLogado(null, null, null);
+
+
+                getActivity().finish();
+            }
+        });
         return view;
     }
 
     private void inicializaRecursos(LayoutInflater inflater, ViewGroup container) {
         view = inflater.inflate(R.layout.fragment_configuracao, container, false);
         configuracaoView = new ConfiguracaoView(view);
+        twitterApp = new TwitterApp(getContext(), "bMeIFl9LZ17tgJkSDqIrEL3xD", "URisH2K8zt6FfZF6DHD31zejZiWrAgqoy45phuydmTL1rQ6fKp");
+        twitterApp.setListener(ConfiguracaoController.this);
+        notificacaoPedidosSharedPreference = new NotificacaoPedidosSharedPreference(getContext());
     }
 
 
@@ -160,6 +230,32 @@ public class ConfiguracaoController extends Fragment implements AuthenticatorLis
         InstagramSharedPreferences instagramSharedPreferences = new InstagramSharedPreferences(getContext());
         instagramSharedPreferences.setToken(auth_token);
 
+
+    }
+
+    @Override
+    public void onComplete(String value) {
+
+        if(!twitterApp.hasAccessToken()){
+            configuracaoView.getTwitterSwitch().setChecked(false);
+        }
+        else{
+            System.out.println("maaaaaaaaaaaaanooooo deu certoooooooo");
+            configuracaoView.getTwitterSwitch().setChecked(true);
+        }
+
+    }
+
+    @Override
+    public void onError(String value) {
+
+
+        if(!twitterApp.hasAccessToken()){
+            configuracaoView.getTwitterSwitch().setChecked(false);
+        }
+        else{
+            configuracaoView.getTwitterSwitch().setChecked(true);
+        }
 
     }
 }

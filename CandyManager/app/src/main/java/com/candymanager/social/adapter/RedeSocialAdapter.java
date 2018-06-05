@@ -3,6 +3,7 @@ package com.candymanager.social.adapter;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.media.Image;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -63,6 +64,8 @@ public class RedeSocialAdapter extends BaseAdapter {
         TextView dataTextView = (TextView) row.findViewById(R.id.dataTextView);
         TextView curtidasTextView = (TextView) row.findViewById(R.id.curtidasTextView);
         TextView comentariosTextView = (TextView) row.findViewById(R.id.comentariosTextView);
+        ImageView likesImageView = (ImageView) row.findViewById(R.id.likeImageView);
+        ImageView commentImageView = (ImageView) row.findViewById(R.id.commentImageView);
 
         new DownloadImageTask((ImageView) row.findViewById(R.id.fotoImageView))
                 .execute(redeSocialModelArrayList.get(i).getFullPicture());
@@ -73,6 +76,15 @@ public class RedeSocialAdapter extends BaseAdapter {
         curtidasTextView.setText(String.valueOf(redeSocialModelArrayList.get(i).getLikes()));
         comentariosTextView.setText(String.valueOf(redeSocialModelArrayList.get(i).getComments()));
 
+        if(redeSocialModelArrayList.get(i).getType() == 1) {
+            likesImageView.setImageResource(R.drawable.like);
+        }else{
+            likesImageView.setImageResource(R.drawable.heart);
+        }
+
+        if(redeSocialModelArrayList.get(i).getType() == 3){
+            commentImageView.setImageResource(R.drawable.retweet);
+        }
         return row;
     }
 

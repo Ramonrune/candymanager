@@ -29,6 +29,7 @@ import com.candymanager.login.LoginSharedPreferences;
 import com.candymanager.pedidos.PedidoController;
 import com.candymanager.produtos.ProdutoController;
 import com.candymanager.social.RedeSocialController;
+import com.candymanager.util.BackgroundService;
 
 public class MenuPrincipal extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -78,6 +79,8 @@ public class MenuPrincipal extends AppCompatActivity
                 drawer.closeDrawer(GravityCompat.START);
             }
         });
+
+        startService(new Intent(this, BackgroundService.class));
 
     }
 
