@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -48,10 +49,12 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.LinkedHashMap;
+import java.util.Locale;
 
 public class PedidoAlteraController extends Fragment {
 
@@ -106,7 +109,14 @@ public class PedidoAlteraController extends Fragment {
         pedidoAlteraView.getDataDatePicker().updateDate((date.getYear() + 1900), date.getMonth(), date.getDate());
 
         pedidoAlteraView.getClienteButton().setText(pedidoModel.getCliente().getNome());
-        pedidoAlteraView.getCepMaskedEditText().setText(pedidoModel.getCep());
+        try {
+            StringBuilder builder = new StringBuilder(pedidoModel.getCep());
+            builder.insert(5, "-");
+
+            pedidoAlteraView.getCepEditText().setText(builder.toString());
+        }catch(Exception e){
+
+        }
         pedidoAlteraView.getEnderecoEditText().setText(pedidoModel.getEndereco());
         pedidoAlteraView.getBairroEditText().setText(pedidoModel.getBairro());
         pedidoAlteraView.getNumeroEditText().setText(pedidoModel.getNumero());
@@ -239,12 +249,12 @@ public class PedidoAlteraController extends Fragment {
             }
         });
 
-        pedidoAlteraView.getCepMaskedEditText().addTextChangedListener(new TextWatcher() {
+        pedidoAlteraView.getCepEditText().addTextChangedListener(new TextWatcher() {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 System.out.println("-----");
-                if (charSequence.toString().trim().length() == 9) {
+                if (charSequence.toString().trim().length() == 9 && charSequence.charAt(5) == '-') {
 
                     CepAsyncTask httpCepUtil = new CepAsyncTask();
                     httpCepUtil.execute(charSequence.toString());
@@ -360,13 +370,16 @@ public class PedidoAlteraController extends Fragment {
     private void adicionaListenerValor(ItemPedidoAlteraView itemPedido, int value) {
         if (!itemPedido.getValorTotalDosGastosEditText().getText().toString().trim().equals("")) {
             try {
-                double valor = Double.parseDouble(
-                        itemPedido.getValorTotalDosGastosEditText().getText().toString().replaceAll("[^0-9\\.]", ""));
+
+                NumberFormat format = NumberFormat.getInstance(Locale.FRANCE);
+                Number number = format.parse(itemPedido.getValorTotalDosGastosEditText().getText().toString());
+
+                double valor = number.doubleValue();
                 double novoValor = valor * ((float) (value / 100.00));
 
                 itemPedido.getPrecoDeVendaEditText().setText("R$ " + String.format("%.2f", valor + novoValor));
             } catch (Exception e) {
-
+                e.printStackTrace();
             }
         } else {
             itemPedido.getPrecoDeVendaEditText().setText("");
@@ -443,6 +456,7 @@ public class PedidoAlteraController extends Fragment {
                     pedidoModel.setBairro(pedidoAlteraView.getBairroEditText().getText().toString());
                     pedidoModel.setEndereco(pedidoAlteraView.getEnderecoEditText().getText().toString());
                     pedidoModel.setNumero(pedidoAlteraView.getNumeroEditText().getText().toString());
+                    pedidoModel.setCep(pedidoAlteraView.getCepEditText().getText().toString().replace("-", ""));
 
                     Calendar cal = Calendar.getInstance();
                     cal.set(pedidoAlteraView.getDataDatePicker().getYear(), pedidoAlteraView.getDataDatePicker().getMonth(), pedidoAlteraView.getDataDatePicker().getDayOfMonth());

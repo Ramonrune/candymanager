@@ -22,7 +22,7 @@ public class PedidoAlteraView {
 
     private ImageView clienteImageView;
 
-    private MaskedEditText cepMaskedEditText;
+    private EditText cepEditText;
     private EditText enderecoEditText;
     private EditText bairroEditText;
     private EditText numeroEditText;
@@ -42,7 +42,7 @@ public class PedidoAlteraView {
 
         clienteImageView = (ImageView) view.findViewById(R.id.clienteImageView);
 
-        cepMaskedEditText = (MaskedEditText) view.findViewById(R.id.cepMaskedEditText);
+        cepEditText = (EditText) view.findViewById(R.id.cepEditText);
 
         enderecoEditText = (EditText) view.findViewById(R.id.enderecoEditText);
         bairroEditText = (EditText) view.findViewById(R.id.bairroEditText);
@@ -59,8 +59,8 @@ public class PedidoAlteraView {
         return clienteImageView;
     }
 
-    public MaskedEditText getCepMaskedEditText() {
-        return cepMaskedEditText;
+    public EditText getCepEditText() {
+        return cepEditText;
     }
 
     public EditText getEnderecoEditText() {
