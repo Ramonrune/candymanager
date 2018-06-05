@@ -1,19 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorAccent"
+    xmlns:mask="http://schemas.android.com/tools"
     tools:context=".pedidos.alterar.PedidoAlteraController">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true">
 
         <LinearLayout
+            android:id="@+id/mainLinearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -28,227 +31,60 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
                     android:layout_marginTop="5dp"
                     android:text="Cliente"
                     android:textColor="@android:color/background_dark" />
 
-                <EditText
-                    android:id="@+id/clienteEditText"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_margin="5dp"
-                    android:background="@drawable/custom_edittext_white"
-                    android:hint=" Cliente"
-                    android:inputType="textPersonName"
-                    android:textColor="@android:color/background_dark" />
-
-            </LinearLayout>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Pedido"
-                android:textColor="@android:color/background_dark"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="10dp" />
-
-            <LinearLayout
-                android:id="@+id/pedidoLinearLayout"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="5dp"
-                android:background="@color/cardview_light_background"
-                android:orientation="vertical">
-
-
                 <LinearLayout
+                    android:id="@+id/produtosLayout"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="5dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="Doce"
-                            android:textColor="@android:color/background_dark" />
-
-                        <Spinner
-                            android:id="@+id/doceSpinner"
-                            android:layout_width="match_parent"
-                            android:layout_height="40dp"
-                            android:layout_marginBottom="5dp"
-                            android:layout_marginRight="5dp"
-                            android:layout_marginTop="5dp"
-                            android:layout_weight="1"
-                            android:background="@drawable/custom_edittext_gray"
-                            android:inputType="textPersonName" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="5dp"
-                            android:layout_weight="1"
-                            android:text="Quantidade"
-                            android:textColor="@android:color/background_dark" />
-
-                        <EditText
-                            android:id="@+id/quantidadeDoceEditText"
-                            android:layout_width="match_parent"
-                            android:layout_height="40dp"
-                            android:layout_margin="5dp"
-                            android:layout_weight="1"
-                            android:background="@drawable/custom_edittext_gray"
-                            android:inputType="textPersonName"
-                            android:textColor="@android:color/background_dark" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:orientation="horizontal">
-
-                        <ImageButton
-                            android:id="@+id/acrescentaDoceImageButton"
-                            android:layout_width="27dp"
-                            android:layout_height="27dp"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginTop="20dp"
-                            android:background="@android:color/transparent"
-                            android:scaleType="centerInside"
-                            android:src="@drawable/mais" />
-
-                        <ImageButton
-                            android:id="@+id/decresmentaDoceImageButton"
-                            android:layout_width="27dp"
-                            android:layout_height="27dp"
-                            android:layout_marginLeft="20dp"
-                            android:layout_marginTop="20dp"
-                            android:background="@android:color/transparent"
-                            android:scaleType="centerInside"
-                            android:src="@drawable/menos" />
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="5dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Valor total dos gastos"
-                        android:textColor="@android:color/background_dark" />
-
-                    <EditText
-                        android:id="@+id/valorTotalDosGastosEditText"
-                        android:layout_width="230dp"
-                        android:layout_height="40dp"
-                        android:layout_marginBottom="5dp"
-                        android:layout_marginRight="5dp"
-                        android:layout_marginTop="5dp"
-                        android:background="@drawable/custom_edittext_gray"
-                        android:hint=" R$"
-                        android:inputType="textPersonName"
-                        android:textColor="@android:color/background_dark" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="320dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginBottom="10dp"
+                    android:layout_height="65dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/custom_card"
                     android:orientation="horizontal">
 
-                    <LinearLayout
-                        android:layout_width="153dp"
-                        android:layout_height="wrap_content"
+                    <ImageView
+                        android:id="@+id/clienteImageView"
+                        android:layout_width="135dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:src="@drawable/cliente" />
+
+                    <Button
+                        android:id="@+id/clienteButton"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         android:layout_margin="5dp"
                         android:layout_weight="1"
-                        android:orientation="vertical">
+                        android:gravity="center_vertical"
+                        android:hint="Selecionar cliente..."
+                        android:inputType="textPersonName"
+                        android:textAlignment="gravity"
+                        android:textColor="@android:color/background_dark" />
 
-                        <TextView
-                            android:id="@+id/textView6"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="Margem de lucro"
-                            android:textColor="@android:color/background_dark" />
-
-                        <Spinner
-                            android:id="@+id/margemDeLucroSpinner"
-                            android:layout_width="108dp"
-                            android:layout_height="40dp"
-                            android:layout_marginBottom="5dp"
-                            android:layout_marginRight="5dp"
-                            android:layout_marginTop="5dp"
-                            android:background="@drawable/custom_edittext_gray"
-                            android:hint=" %"
-                            android:inputType="textPersonName"
-                            android:textColor="@android:color/background_dark" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/textView5"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="Preço de venda"
-                            android:textColor="@android:color/background_dark" />
-
-                        <EditText
-                            android:id="@+id/precoDeVendaEditText"
-                            android:layout_width="183dp"
-                            android:layout_height="40dp"
-                            android:layout_marginBottom="5dp"
-                            android:layout_marginRight="5dp"
-                            android:layout_marginTop="5dp"
-                            android:layout_weight="1"
-                            android:background="@drawable/custom_edittext_gray"
-                            android:hint=" R$"
-                            android:inputType="textPersonName" />
-
-                    </LinearLayout>
                 </LinearLayout>
+
 
             </LinearLayout>
 
-            <RelativeLayout
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="5dp"
-                android:layout_marginTop="10dp">
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:text="Itens de pedido"
+                    android:textColor="@android:color/background_dark" />
 
                 <ImageButton
                     android:id="@+id/agendaImageButton"
@@ -262,32 +98,38 @@
                     android:scaleType="fitCenter"
                     android:src="@drawable/adicionar" />
 
-            </RelativeLayout>
+            </LinearLayout>
+
+
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
-                android:layout_marginLeft="12dp"
+                android:layout_marginLeft="5dp"
                 android:layout_marginTop="5dp"
                 android:layout_weight="1"
                 android:text="Data"
                 android:textColor="@android:color/background_dark" />
 
-            <CalendarView
-                android:id="@+id/calendarView"
+            <DatePicker
+                android:id="@+id/dataDatePicker"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="12dp"
+                android:layout_marginLeft="5dp"
                 android:layout_marginRight="7dp"
 
-                android:background="@color/cardview_light_background"
-                tools:layout_editor_absoluteX="10dp" />
+                android:background="#fff" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:layout_margin="5dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/custom_card"
+
+                android:paddingRight="10dp">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -301,12 +143,11 @@
                     android:id="@+id/cepEditText"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
+                    android:inputType="phone"
                     android:layout_marginLeft="15dp"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="15dp"
                     android:background="@drawable/custom_edittext_gray"
-                    android:ems="10"
-                    android:inputType="textPersonName"
-                    android:textColor="@android:color/background_dark" />
+                    />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -360,6 +201,7 @@
                     android:layout_height="40dp"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="5dp"
+                    android:layout_marginBottom="15dp"
                     android:background="@drawable/custom_edittext_gray"
                     android:ems="10"
                     android:inputType="textPersonName"
