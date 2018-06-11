@@ -44,6 +44,38 @@ public class LoginSharedPreferences {
         return nome == null ? "" : nome;
     }
 
+//*****
+    public String getCep(){
+        SharedPreferences prefs = context.getSharedPreferences(PREFERENCIA, MODE_PRIVATE);
+        String cep = prefs.getString("cep", null);
+        return cep == null ? "" : cep;
+    }
+
+    public String getEndereco(){
+        SharedPreferences prefs = context.getSharedPreferences(PREFERENCIA, MODE_PRIVATE);
+        String endereco = prefs.getString("endereco", null);
+        return endereco == null ? "" : endereco;
+    }
+
+    public String getBairro(){
+        SharedPreferences prefs = context.getSharedPreferences(PREFERENCIA, MODE_PRIVATE);
+        String bairro = prefs.getString("bairro", null);
+        return bairro == null ? "" : bairro;
+    }
+
+    public String getNumero(){
+        SharedPreferences prefs = context.getSharedPreferences(PREFERENCIA, MODE_PRIVATE);
+        String numero = prefs.getString("numero", null);
+        return numero == null ? "" : numero;
+    }
+
+    public byte[] getFoto(){
+        SharedPreferences prefs = context.getSharedPreferences(PREFERENCIA, MODE_PRIVATE);
+        String foto = prefs.getString("foto", null);
+        return (foto == null ? "" : foto).getBytes();
+    }
+
+
     public boolean usuarioLogado(){
         SharedPreferences prefs = context.getSharedPreferences(PREFERENCIA, MODE_PRIVATE);
         String email = prefs.getString("email", null);

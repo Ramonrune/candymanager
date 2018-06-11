@@ -186,7 +186,6 @@ public class ClienteDAO {
 
     public ClienteModel getCliente(String clienteId) {
 
-
         SQLiteDatabase db = clienteAjudante.getReadableDatabase();
 
         String[] projection = {
@@ -199,13 +198,12 @@ public class ClienteDAO {
 
         };
 
-
         String selection = ClienteContrato.ClienteEntrada.COLUNA_ID_CLIENTE + " = ?";
-
 
         String[] selectionArgs = {clienteId};
         String ordenarPor =
                 ClienteContrato.ClienteEntrada.COLUNA_NOME + " COLLATE NOCASE ASC";
+
         Cursor cursor = db.query(
                 ClienteContrato.ClienteEntrada.NOME_TABELA,
                 projection,
@@ -215,7 +213,6 @@ public class ClienteDAO {
                 null,
                 ordenarPor
         );
-
 
         ClienteModel cliente = new ClienteModel();
 

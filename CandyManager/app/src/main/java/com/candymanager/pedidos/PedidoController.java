@@ -80,6 +80,7 @@ public class PedidoController extends Fragment {
         maxDate.add(Calendar.YEAR, 1);
 
         List<CalendarEvent> eventList = new ArrayList<>();
+
         inicializaLista(eventList, view.getContext());
 
         pedidoListaView.getCalendarioAgendaCalendarView().init(eventList, minDate, maxDate, Locale.getDefault(), new CalendarPickerController() {
@@ -93,9 +94,8 @@ public class PedidoController extends Fragment {
 
                 System.out.println(event.getId());
                 if(event.getId() != 0){
-                    final PedidoModel model = getPedido(event.getId());
 
-                    System.out.println(model.getIdPedido() + " ---- " + model.getCliente());
+                    final PedidoModel model = getPedido(event.getId());
 
                     final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                     builder.setTitle("Opções")
@@ -240,7 +240,6 @@ public class PedidoController extends Fragment {
 
     private void inicializaLista(List<CalendarEvent> eventList, Context context) {
 
-
         int i = 1;
         for(PedidoModel model : listaPedidos){
 
@@ -260,20 +259,23 @@ public class PedidoController extends Fragment {
 
 
     }
+
     private ArrayList<PedidoModel> listaPedidos;
+
     private void inicializaRecursos(LayoutInflater inflater, ViewGroup container) {
+
         view = inflater.inflate(R.layout.fragment_pedido, container, false);
         pedidoDAO = new PedidoDAO(container.getContext());
         pedidoListaView = new PedidoListaView(view, pedidoDAO.getLista());
         pedidoModel = new PedidoModel();
         listaPedidos = pedidoDAO.getLista();
 
-
-
     }
 
     private PedidoModel getPedido(long id){
+
         for(PedidoModel pedido : listaPedidos){
+
             if(pedido.getIdLista() == id){
                 return pedido;
             }

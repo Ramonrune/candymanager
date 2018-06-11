@@ -58,8 +58,7 @@ public class LoginController extends AppCompatActivity {
                     }
                     if(success){
 
-                        Intent intent = new Intent(LoginController.this,
-                                MenuPrincipal.class);
+                        Intent intent = new Intent(LoginController.this, MenuPrincipal.class);
                         startActivity(intent);
                         finish();
 

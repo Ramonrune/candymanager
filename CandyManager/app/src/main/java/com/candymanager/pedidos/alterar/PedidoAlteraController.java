@@ -137,16 +137,6 @@ public class PedidoAlteraController extends Fragment {
             doce.setText(itemPedidoModel.getDoce().getNome());
             itemPedido.setDoceButton(doce);
 
-
-            //Levi
-
-/*
-            ItemPedidoAlteraView pedidoItemPedidoAlteraView = pedidoAlteraView.getListaPedidos().get(i);
-
-            System.out.println("Qtd pedido1: " + pedidoItemPedidoAlteraView.getProdutoModel());
-
-            if (pedidoItemPedidoAlteraView.getProdutoModel() == null);
-*/
             DiscreteSeekBar discreteSeekBar = (DiscreteSeekBar) newLayout.findViewById(R.id.quantidadeDoceDiscreteSeekBar);
             discreteSeekBar.setProgress(itemPedidoModel.getQuantidade());
             itemPedido.setQuantidadeDoceDiscreteSeekBar(discreteSeekBar);

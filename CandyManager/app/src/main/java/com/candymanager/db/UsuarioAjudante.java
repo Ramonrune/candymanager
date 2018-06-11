@@ -12,6 +12,7 @@ public class UsuarioAjudante extends SQLiteOpenHelper {
 
     public static final int DATABASE_VERSION = 1;
     public static final String DATABASE_NAME = "Usuario.db";
+
     private static final String SQL_CREATE_ENTRIES =
             "CREATE TABLE " + UsuarioContrato.UsuarioEntrada.NOME_TABELA + " (" +
                     UsuarioContrato.UsuarioEntrada.COLUNA_ID_USUARIO + " CHAR(36) PRIMARY KEY," +
@@ -32,6 +33,7 @@ public class UsuarioAjudante extends SQLiteOpenHelper {
     public UsuarioAjudante(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
+
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(SQL_CREATE_ENTRIES);
     }
