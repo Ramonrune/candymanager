@@ -66,7 +66,6 @@ public class CadastroController extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-
                 LinkedHashMap<EditText, String> mapa = new LinkedHashMap<>();
                 mapa.put(cadastroView.getNome(), "Nome não pode ser vazio!");
                 mapa.put(cadastroView.getEmailEditText(), "E-mail não pode ser vazio!");

@@ -121,7 +121,6 @@ public class PedidoDAO {
 
     }
 
-
     public boolean excluir(PedidoModel model) {
 
         SQLiteDatabase db = pedidoAjudante.getWritableDatabase();
@@ -147,7 +146,6 @@ public class PedidoDAO {
 
     public ArrayList<PedidoModel> getLista() {
         LoginSharedPreferences loginSharedPreferences = new LoginSharedPreferences(contexto);
-
 
         ArrayList<PedidoModel> lista = new ArrayList<>();
 

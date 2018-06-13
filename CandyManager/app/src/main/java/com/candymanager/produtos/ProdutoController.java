@@ -70,15 +70,12 @@ public class ProdutoController extends Fragment {
             @Override
             public void onItemClick(int position) {
 
-
                 final ProdutoModel model = produtoListaView.getProdutoAdapter().getItem(position);
 
-                System.out.println((model.getNome()) + "-------------");
                 final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                 builder.setTitle("Opções")
                         .setItems(R.array.menu_options, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int posicao) {
-
 
                                 if(posicao == 0){
                                     ProdutoMostraController clienteController = new ProdutoMostraController();
@@ -142,8 +139,6 @@ public class ProdutoController extends Fragment {
         produtoDAO = new ProdutoDAO(container.getContext());
         produtoListaView = new ProdutoListaView(view, produtoDAO.getLista());
         produtoModel = new ProdutoModel();
-
-
 
     }
 

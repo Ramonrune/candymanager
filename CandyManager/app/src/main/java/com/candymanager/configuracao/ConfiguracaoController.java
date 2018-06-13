@@ -107,7 +107,7 @@ public class ConfiguracaoController extends Fragment implements AuthenticatorLis
                         janelaAutenticacaoInstagram.show();
                     } else {
                         InstagramSharedPreferences instagramSharedPreferences = new InstagramSharedPreferences(getContext());
-                        instagramSharedPreferences.setToken(null);
+                        instagramSharedPreferences.setEnabled(false);
                     }
 
                 } else {
@@ -229,7 +229,7 @@ public class ConfiguracaoController extends Fragment implements AuthenticatorLis
 
         InstagramSharedPreferences instagramSharedPreferences = new InstagramSharedPreferences(getContext());
         instagramSharedPreferences.setToken(auth_token);
-
+        instagramSharedPreferences.setEnabled(true);
 
     }
 
@@ -240,7 +240,6 @@ public class ConfiguracaoController extends Fragment implements AuthenticatorLis
             configuracaoView.getTwitterSwitch().setChecked(false);
         }
         else{
-            System.out.println("maaaaaaaaaaaaanooooo deu certoooooooo");
             configuracaoView.getTwitterSwitch().setChecked(true);
         }
 
