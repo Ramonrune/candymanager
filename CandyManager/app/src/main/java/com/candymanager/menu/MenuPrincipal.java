@@ -5,6 +5,8 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
@@ -97,11 +99,17 @@ public class MenuPrincipal extends AppCompatActivity
         TextView emailUsuarioTextView = (TextView) header.findViewById(R.id.emailMenu);
         emailUsuarioTextView.setText(loginSharedPreferences.getEmail());
 
-        ImageButton usuario  =  (ImageButton) header.findViewById(R.id.usuarioImageButton);
-        Drawable d = new BitmapDrawable(getResources(), BitmapUtil.getImage(model.getFoto()));
-        usuario.setBackground(d);
-        usuario.setImageBitmap(BitmapUtil.getImage(model.getFoto()));
-        usuario.setOnClickListener(new View.OnClickListener() {
+        usuarioFoto  =  (ImageButton) header.findViewById(R.id.usuarioImageButton);
+        if(model.getFoto() != null){
+
+            usuarioFoto.setImageBitmap(Bitmap.createScaledBitmap( BitmapUtil.getImage(model.getFoto()), 250, 250, true));
+        }
+        else{
+            Bitmap icon = BitmapFactory.decodeResource(getResources(),
+                    R.drawable.usuario);
+            usuarioFoto.setImageBitmap(Bitmap.createScaledBitmap( icon, 250, 250, true));
+        }
+        usuarioFoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -115,6 +123,13 @@ public class MenuPrincipal extends AppCompatActivity
         });
 
         startService(new Intent(this, BackgroundService.class));
+
+    }
+
+    private  ImageButton usuarioFoto;
+
+    public void setFoto(Bitmap bitmap){
+        usuarioFoto.setImageBitmap(Bitmap.createScaledBitmap( bitmap, 250, 250, true));
 
     }
 

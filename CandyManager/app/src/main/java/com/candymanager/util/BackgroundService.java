@@ -74,7 +74,8 @@ public class BackgroundService extends Service {
 
 
                 //Toast.makeText(context, "Service is still running " + pedidoDAO.getListaDiaDeHoje().size(), Toast.LENGTH_LONG).show();
-                handler.postDelayed(runnable, 28800000);
+               // handler.postDelayed(runnable, 28800000);
+                handler.postDelayed(runnable, 60000);
             }
         };
 //28800000

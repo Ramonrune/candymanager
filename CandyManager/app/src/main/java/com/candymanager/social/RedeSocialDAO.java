@@ -54,9 +54,10 @@ public class RedeSocialDAO {
         this.context = context;
         this.redeSocialListaPublicacaoView = redeSocialListaPublicacaoView;
         this.instagramSharedPreferences = new InstagramSharedPreferences(context);
-        this.asyncTaskSharedPreferences = new AsyncTaskSharedPreferences(context, getQuantidadeRedesSociaisIntegradas());
         this.twitterApp = new TwitterApp(context, "bMeIFl9LZ17tgJkSDqIrEL3xD", "URisH2K8zt6FfZF6DHD31zejZiWrAgqoy45phuydmTL1rQ6fKp");
         this.twitterSessao = new TwitterSessao(context);
+        this.asyncTaskSharedPreferences = new AsyncTaskSharedPreferences(context, getQuantidadeRedesSociaisIntegradas());
+
         if (AccessToken.getCurrentAccessToken() != null) {
             URL_FACEBOOK = "https://graph.facebook.com/v3.0/me/feed?fields=comments.limit(0).summary(true),likes.limit(0).summary(true),description,picture,full_picture,created_time&access_token=" + AccessToken.getCurrentAccessToken().getToken();
         }
@@ -121,6 +122,14 @@ public class RedeSocialDAO {
             return true;
         }
 
+
+        System.out.println("========= " + twitterApp == null);
+
+
+        if (twitterApp.hasAccessToken()) {
+            return true;
+        }
+
         return false;
     }
 
@@ -131,6 +140,11 @@ public class RedeSocialDAO {
         }
 
         if (instagramSharedPreferences.usuarioLogadoInstagram()) {
+            contador++;
+        }
+
+
+        if (twitterApp.hasAccessToken()) {
             contador++;
         }
         return contador;
@@ -175,6 +189,31 @@ public class RedeSocialDAO {
                 System.out.println("Sent by: @" + each.getUser().getScreenName()
                         + " - " + each.getUser().getName() + "\n" + each.getText()
                         + "\n");
+            }
+
+            asyncTaskSharedPreferences.incrementaCounter();
+
+
+            if(asyncTaskSharedPreferences.terminou()) {
+
+                Collections.sort(list, new Comparator<RedeSocialModel>() {
+                    @Override
+                    public int compare(RedeSocialModel redeSocialModel, RedeSocialModel redeSocialModel2) {
+                        DateFormat f = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+                        try {
+                            return f.parse(redeSocialModel2.getCreatedTime()).compareTo(f.parse(redeSocialModel.getCreatedTime()));
+                        } catch (ParseException e) {
+                            e.printStackTrace();
+                        }
+
+                        return 0;
+
+                    }
+                });
+
+                redeSocialListaPublicacaoView.getListaPublicacoesListView().setAdapter(new RedeSocialAdapter(context, list));
+                redeSocialListaPublicacaoView.getProgressoProgressBar().setVisibility(View.INVISIBLE);
+                redeSocialListaPublicacaoView.getListaPublicacoesListView().setVisibility(View.VISIBLE);
             }
 
         }

@@ -121,6 +121,11 @@ public class UsuarioAlteraController extends Fragment {
         if(model.getFoto() !=  null){
             usuarioAlteraView.getFotoImageButton().setImageBitmap(BitmapUtil.getImage(model.getFoto()));
         }
+        else{
+            Bitmap icon = BitmapFactory.decodeResource(getResources(),
+                    R.drawable.usuario);
+            usuarioAlteraView.getFotoImageButton().setImageBitmap(Bitmap.createScaledBitmap( icon, 300, 300, true));
+        }
 
     }
 
@@ -218,6 +223,10 @@ public class UsuarioAlteraController extends Fragment {
                 if (sucesso) {
 
                     if (alterar) {
+                        if(fotoUsuario != null) {
+                            ((MenuPrincipal) getActivity())
+                                    .setFoto(fotoUsuario);
+                        }
                         Mensagem.mostrarDialogoMudarFragmento(homeController, getActivity(), "Sucesso", "Alteração do usuário realizado com sucesso!");
                     } else {
                         Mensagem.mostrarDialogoMudarFragmento(homeController, getActivity(), "Erro", "Ocorreu algum erro alteração, por favor, tente novamente ou entre em contato com o suporte!");

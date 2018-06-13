@@ -20,6 +20,15 @@ public class InstagramSharedPreferences {
     public void setToken(String token){
         SharedPreferences.Editor editor = context.getSharedPreferences(PREFERENCIA, MODE_PRIVATE).edit();
         editor.putString("token", token);
+        editor.putBoolean("enabled", true);
+
+
+        editor.apply();
+    }
+
+    public void setEnabled(boolean status){
+        SharedPreferences.Editor editor = context.getSharedPreferences(PREFERENCIA, MODE_PRIVATE).edit();
+        editor.putBoolean("enabled", status);
 
 
         editor.apply();
@@ -34,12 +43,8 @@ public class InstagramSharedPreferences {
 
     public boolean usuarioLogadoInstagram(){
         SharedPreferences prefs = context.getSharedPreferences(PREFERENCIA, MODE_PRIVATE);
-        String token = prefs.getString("token", null);
-        if (token != null) {
-            return true;
-        }
+        return prefs.getBoolean("enabled", false);
 
-        return false;
     }
 
 
