@@ -44,7 +44,7 @@ public class UsuarioAlteraDAO {
         values.put(UsuarioContrato.UsuarioEntrada.COLUNA_EMAIL, model.getEmail());
         values.put(UsuarioContrato.UsuarioEntrada.COLUNA_CEP, model.getCep());
         values.put(UsuarioContrato.UsuarioEntrada.COLUNA_ENDERECO, model.getEndereco());
-        values.put(UsuarioContrato.UsuarioEntrada.COLUNA_BAIRRO, model.getNumero());
+        values.put(UsuarioContrato.UsuarioEntrada.COLUNA_BAIRRO, model.getBairro());
         values.put(UsuarioContrato.UsuarioEntrada.COLUNA_NUMERO, model.getNumero());
         values.put(UsuarioContrato.UsuarioEntrada.COLUNA_FOTO, model.getFoto());
 
