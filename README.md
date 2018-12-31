@@ -11,5 +11,20 @@ Android app used in client and products management, including social network man
 <a href="https://drive.google.com/file/d/1kJpwNcjvKx4OsfXWAzMbBXn1fVDSwrGR/view?usp=sharing">5.2. Sprint 2</a><br>
 
 
+## Dependencies
+Some dependencies of this project:
+<br>
+<ul>
+  <li>Facebook API</li>  
+  <li>Instagram API</li>  
+  <li>Twitter4j</li> 
+  <li>CEP API</li> 
+  <li>Masked Edit Text Library</li>
+  <li>Recycler Fast Scroll from futuremind</li>
+  <li>Discrete seek bar</li>
+  <li>AgendaCalendarView from tibolte</li>
+
+</ul>
+
 
 
