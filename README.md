@@ -11,6 +11,10 @@ Android app used in client and products management, including social network man
 <a href="https://drive.google.com/file/d/1kJpwNcjvKx4OsfXWAzMbBXn1fVDSwrGR/view?usp=sharing">5.2. Sprint 2</a><br>
 
 
+## Presentation
+<a href="https://drive.google.com/open?id=1fahSgoSYbEDYhp3kvea-9Y38xAg3Q1Sd">Videos about the project </a>
+
+
 ## Dependencies
 Some dependencies of this project:
 <br>
