@@ -1,4 +1,4 @@
-# Social-network-manager
+# product-management
 Android app used in client and products management, including social network management and orders
 
 ## Documentation
