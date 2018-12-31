@@ -13,15 +13,10 @@ Android app used in client and products management, including social network man
 
 ## Photos
 Some photos about this project<br>
-Social network manager<br>
 <a href="https://imgbb.com/"><img src="https://i.ibb.co/XpJ5jpR/GERENCIAR-REDES-SOCIAIS.jpg" alt="GERENCIAR-REDES-SOCIAIS" border="0"></a>
 <a href="https://imgbb.com/"><img src="https://i.ibb.co/Nn6gM5W/INTEGRAR.jpg" alt="INTEGRAR" border="0"></a>
 <a href="https://imgbb.com/"><img src="https://i.ibb.co/2sL33ZT/PUBLICAR.jpg" alt="PUBLICAR" border="0"></a>
-
-Menu<br>
 <a href="https://imgbb.com/"><img src="https://i.ibb.co/Y8HppL0/MENU.jpg" alt="MENU" border="0"></a>
-
-Schedulers<br>
 <a href="https://imgbb.com/"><img src="https://i.ibb.co/CJ26pNX/PEDIDOS.jpg" alt="PEDIDOS" border="0"></a>
 <a href="https://imgbb.com/"><img src="https://i.ibb.co/9pgB9tZ/PEDIDOS-1.jpg" alt="PEDIDOS-1" border="0"></a>
 
