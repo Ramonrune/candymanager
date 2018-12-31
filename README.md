@@ -1,4 +1,4 @@
-# product-management
+# Product management
 Android app used in client and products management, including social network management and orders
 
 ## Documentation
@@ -21,7 +21,6 @@ Some photos about this project<br>
 <a href="https://imgbb.com/"><img src="https://i.ibb.co/9pgB9tZ/PEDIDOS-1.jpg" alt="PEDIDOS-1" border="0"></a>
 
 ## Navigation
-Navigation diagram
 <a href="https://ibb.co/LCs6dCw"><img src="https://i.ibb.co/qR29YRG/navigability.png" alt="navigability" border="0"></a>
 
 
