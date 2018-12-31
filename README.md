@@ -13,20 +13,13 @@ Android app used in client and products management, including social network man
 
 ## Photos
 Some photos about this project<br>
-
-Menu
-![alt text](https://drive.google.com/file/d/1_u1PWUZnsyo1R9NW4lUFn6ItOmPq7eH9/view?usp=sharing)
-
-Requests
-![alt text](https://drive.google.com/file/d/1jSN_jDLdjAcVqY-ta4_GFvdJYw4URmGZ/view?usp=sharing)
-![alt text](https://drive.google.com/file/d/1DpreOqrHAG4l6gNdPN0FyevXn7-GZE0e/view?usp=sharing)
-
-Social network management
-![alt text](https://drive.google.com/file/d/1Wjrgim_6kP_kfj_SqGEi8wOmgalo0pDN/view?usp=sharing)
-
-Social network integration
-![alt text](https://drive.google.com/file/d/1V4QVPzIEowB7T52PRDQIvmDUiMKhQrr5/view?usp=sharing)
-![alt text](https://drive.google.com/file/d/1DY6JnVOWY-754BNLJbcx0bI6wZM9e4k3/view?usp=sharing)
+<a href="https://imgbb.com/"><img src="https://i.ibb.co/XpJ5jpR/GERENCIAR-REDES-SOCIAIS.jpg" alt="GERENCIAR-REDES-SOCIAIS" border="0"></a>
+<a href="https://imgbb.com/"><img src="https://i.ibb.co/Nn6gM5W/INTEGRAR.jpg" alt="INTEGRAR" border="0"></a>
+<a href="https://imgbb.com/"><img src="https://i.ibb.co/Y8HppL0/MENU.jpg" alt="MENU" border="0"></a>
+<a href="https://ibb.co/LCs6dCw"><img src="https://i.ibb.co/qR29YRG/navigability.png" alt="navigability" border="0"></a>
+<a href="https://imgbb.com/"><img src="https://i.ibb.co/CJ26pNX/PEDIDOS.jpg" alt="PEDIDOS" border="0"></a>
+<a href="https://imgbb.com/"><img src="https://i.ibb.co/9pgB9tZ/PEDIDOS-1.jpg" alt="PEDIDOS-1" border="0"></a>
+<a href="https://imgbb.com/"><img src="https://i.ibb.co/2sL33ZT/PUBLICAR.jpg" alt="PUBLICAR" border="0"></a>
 
 
 
