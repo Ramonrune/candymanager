@@ -12,7 +12,22 @@ Android app used in client and products management, including social network man
 
 
 ## Photos
-Some photos about this project
+Some photos about this project<br>
+
+Menu
+![alt text](https://drive.google.com/file/d/1_u1PWUZnsyo1R9NW4lUFn6ItOmPq7eH9/view?usp=sharing)
+
+Requests
+![alt text](https://drive.google.com/file/d/1jSN_jDLdjAcVqY-ta4_GFvdJYw4URmGZ/view?usp=sharing)
+![alt text](https://drive.google.com/file/d/1DpreOqrHAG4l6gNdPN0FyevXn7-GZE0e/view?usp=sharing)
+
+Social network management
+![alt text](https://drive.google.com/file/d/1Wjrgim_6kP_kfj_SqGEi8wOmgalo0pDN/view?usp=sharing)
+
+Social network integration
+![alt text](https://drive.google.com/file/d/1V4QVPzIEowB7T52PRDQIvmDUiMKhQrr5/view?usp=sharing)
+![alt text](https://drive.google.com/file/d/1DY6JnVOWY-754BNLJbcx0bI6wZM9e4k3/view?usp=sharing)
+
 
 
 ## Presentation
